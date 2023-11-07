@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,7 +27,14 @@ public class PlantType : ScriptableObject
 [System.Serializable]
 public class GrowthStageParameters
 {
-    public float growthTime; //in game days
+    public Range growthTimeRange; //in game days
     public float waterRequirement;
     public float nutritionRequirement;
+}
+
+[System.Serializable]
+public class Range
+{
+    public float min;
+    public float max;
 }
