@@ -121,6 +121,7 @@ public class Plant : MonoBehaviour
     private void UpdatePlantAppearance()
     {
         // TODO
+        _stageLabel.text = _currentStage.ToString();
     }
 
     private void HandlePlantDeath()
