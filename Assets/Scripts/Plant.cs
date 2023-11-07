@@ -1,25 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Plant : MonoBehaviour
 {
-    public PlantType plantType;
-    public GrowthStage currentStage;
-    public float growthProgress;
-    public float currentHealth;
+    [SerializeField] private TMP_Text _stageLabel;
+    [SerializeField] private PlantType _plantType;
+    [SerializeField] private GrowthStage _currentStage;
+    
+    private float _growthProgress;
+    private float _currentHealth;
 
     
     void Start()
     {
-        currentStage = GrowthStage.Seed;
-        growthProgress = 0;
-        currentHealth = plantType.maxHealth;
+        _currentStage = GrowthStage.Seed;
+        _growthProgress = 0;
+        _currentHealth = _plantType.maxHealth;
     }
     
     void Update()
     {
-        if (currentStage != GrowthStage.Dead)
+        if (_currentStage != GrowthStage.Dead)
         {
             float elapsedTime = Time.deltaTime;
             UpdatePlantGrowth(elapsedTime);
@@ -28,7 +32,7 @@ public class Plant : MonoBehaviour
 
     private void UpdatePlantGrowth(float elapsedTime)
     {
-        if (currentStage == GrowthStage.Dead)
+        if (_currentStage == GrowthStage.Dead)
         {
             // Don't update a dead plant :)
             return;
@@ -43,18 +47,18 @@ public class Plant : MonoBehaviour
             if (waterAvailable < stageParams.waterRequirement)
             {
                 // Reduce health if there's not enough water
-                if (currentHealth > 0)
+                if (_currentHealth > 0)
                 {
-                    currentHealth -= (stageParams.waterRequirement - waterAvailable) * elapsedTime;
-                    currentHealth = Mathf.Clamp(currentHealth, 0, plantType.maxHealth);
+                    _currentHealth -= (stageParams.waterRequirement - waterAvailable) * elapsedTime;
+                    _currentHealth = Mathf.Clamp(_currentHealth, 0, _plantType.maxHealth);
                 }
             }
         }
 
         // Update the growth progress based on elapsed time and stage-specific growth time.
-        growthProgress += elapsedTime / stageParams.growthTime;
+        _growthProgress += elapsedTime / stageParams.growthTime;
 
-        if (growthProgress >= 1.0f)
+        if (_growthProgress >= 1.0f)
         {
             TransitionToNextStage();
         }
@@ -63,16 +67,16 @@ public class Plant : MonoBehaviour
     
     private GrowthStageParameters GetCurrentStageParameters()
     {
-        switch (currentStage)
+        switch (_currentStage)
         {
             case GrowthStage.Seed:
-                return plantType.seedStage;
+                return _plantType.seedStage;
             case GrowthStage.Seedling:
-                return plantType.seedlingStage;
+                return _plantType.seedlingStage;
             case GrowthStage.Sapling:
-                return plantType.saplingStage;
+                return _plantType.saplingStage;
             case GrowthStage.Adult:
-                return plantType.adultStage;
+                return _plantType.adultStage;
             default:
                 return new GrowthStageParameters();
         }
@@ -80,18 +84,18 @@ public class Plant : MonoBehaviour
     
     private void TransitionToNextStage()
     {
-        GrowthStage nextStage = GetNextGrowthStage(currentStage);
+        GrowthStage nextStage = GetNextGrowthStage(_currentStage);
 
         if (nextStage != GrowthStage.Dead)
         {
-            currentStage = nextStage;
-            growthProgress = 0.0f;
+            _currentStage = nextStage;
+            _currentHealth = 0.0f;
             
             UpdatePlantAppearance();
         }
         else
         {
-            currentStage = GrowthStage.Dead;
+            _currentStage = GrowthStage.Dead;
             
             HandlePlantDeath();
         }
