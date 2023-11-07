@@ -89,7 +89,8 @@ public class Plant : MonoBehaviour
         if (nextStage != GrowthStage.Dead)
         {
             _currentStage = nextStage;
-            _currentHealth = 0.0f;
+            _currentHealth = _plantType.maxHealth;
+            _growthProgress = 0;
             
             UpdatePlantAppearance();
         }
