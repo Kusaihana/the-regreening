@@ -15,18 +15,26 @@ MonoBehaviour:
   plantName: Daisy
   maxHealth: 100
   seedStage:
-    growthTime: 14
+    growthTimeRange:
+      min: 5
+      max: 8
     waterRequirement: 30
     nutritionRequirement: 10
   seedlingStage:
-    growthTime: 28
+    growthTimeRange:
+      min: 10
+      max: 12
     waterRequirement: 20
     nutritionRequirement: 10
   saplingStage:
-    growthTime: 28
+    growthTimeRange:
+      min: 12
+      max: 15
     waterRequirement: 10
     nutritionRequirement: 20
   adultStage:
-    growthTime: 50
+    growthTimeRange:
+      min: 15
+      max: 20
     waterRequirement: 20
     nutritionRequirement: 5

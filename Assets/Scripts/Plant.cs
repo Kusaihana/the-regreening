@@ -12,13 +12,14 @@ public class Plant : MonoBehaviour
     
     private float _growthProgress;
     private float _currentHealth;
-
+    private float _currentGrowthTime;
     
     void Start()
     {
         _currentStage = GrowthStage.Seed;
         _growthProgress = 0;
         _currentHealth = _plantType.maxHealth;
+        SetRandomGrowthTime();
     }
     
     void Update()
@@ -56,7 +57,7 @@ public class Plant : MonoBehaviour
         }
 
         // Update the growth progress based on elapsed time and stage-specific growth time.
-        _growthProgress += elapsedTime / stageParams.growthTime;
+        _growthProgress += elapsedTime / _currentGrowthTime;
 
         if (_growthProgress >= 1.0f)
         {
@@ -89,7 +90,9 @@ public class Plant : MonoBehaviour
         if (nextStage != GrowthStage.Dead)
         {
             _currentStage = nextStage;
-            _currentHealth = 0.0f;
+            _currentHealth = _plantType.maxHealth;
+            _growthProgress = 0;
+            SetRandomGrowthTime();
             
             UpdatePlantAppearance();
         }
@@ -97,6 +100,7 @@ public class Plant : MonoBehaviour
         {
             _currentStage = GrowthStage.Dead;
             
+            UpdatePlantAppearance();
             HandlePlantDeath();
         }
     }
@@ -118,9 +122,16 @@ public class Plant : MonoBehaviour
         }
     }
     
+    private void SetRandomGrowthTime()
+    {
+        GrowthStageParameters stageParams = GetCurrentStageParameters();
+        _currentGrowthTime = Random.Range(stageParams.growthTimeRange.min, stageParams.growthTimeRange.max);
+    }
+    
     private void UpdatePlantAppearance()
     {
         // TODO
+        _stageLabel.text = _currentStage.ToString();
     }
 
     private void HandlePlantDeath()
