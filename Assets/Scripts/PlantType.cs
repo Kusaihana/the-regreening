@@ -29,7 +29,8 @@ public class GrowthStageParameters
 {
     public Range growthTimeRange; //in game days
     public float waterRequirement;
-    public float nutritionRequirement;
+    public float nutritionRequirement; //NTH
+    public float waterUsage;
 }
 
 [System.Serializable]

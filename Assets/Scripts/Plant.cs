@@ -1,18 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class Plant : MonoBehaviour
 {
     [SerializeField] private TMP_Text _stageLabel;
     [SerializeField] private PlantType _plantType;
     [SerializeField] private GrowthStage _currentStage;
-    
+    [SerializeField] private MeshRenderer _meshRenderer;
+
     private float _growthProgress;
     private float _currentHealth;
     private float _currentGrowthTime;
+    private SoilTile _tileAssigned;
+    private Material _visual;
     
     void Start()
     {
@@ -20,6 +25,8 @@ public class Plant : MonoBehaviour
         _growthProgress = 0;
         _currentHealth = _plantType.maxHealth;
         SetRandomGrowthTime();
+
+        _visual = _meshRenderer.material;
     }
     
     void Update()
@@ -28,17 +35,23 @@ public class Plant : MonoBehaviour
         {
             float elapsedTime = Time.deltaTime;
             UpdatePlantGrowth(elapsedTime);
+            UseWater();
+        }
+    }
+
+    private void UseWater()
+    {
+        GrowthStageParameters stageParams = GetCurrentStageParameters();
+
+        if (_tileAssigned != null && _tileAssigned.waterPercentage > 0)
+        {
+            _tileAssigned.waterPercentage -= stageParams.waterUsage;
+            _tileAssigned.waterPercentage = Math.Clamp(_tileAssigned.waterPercentage, 0, 1000); //TODO do better
         }
     }
 
     private void UpdatePlantGrowth(float elapsedTime)
     {
-        if (_currentStage == GrowthStage.Dead)
-        {
-            // Don't update a dead plant :)
-            return;
-        }
-        
         GrowthStageParameters stageParams = GetCurrentStageParameters();
         
         // Check if the plant has enough water to continue growing
@@ -130,7 +143,7 @@ public class Plant : MonoBehaviour
     
     private void UpdatePlantAppearance()
     {
-        // TODO
+        _visual.SetInt("_AtlasTile", (int)_currentStage);
         _stageLabel.text = _currentStage.ToString();
     }
 
