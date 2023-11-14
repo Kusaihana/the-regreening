@@ -18,12 +18,21 @@ public class SoilTile : MonoBehaviour
 {
     [SerializeField] private TMP_Text _tileLabel;
     public float waterPercentage;
-    public float sponginess;
+    public float evaporationVariable;
     public LandType landType;
     public int numOfPlants;
 
     private int _seedAmount;
 
+    void Update()
+    {
+        if (waterPercentage > 0)
+        {
+            float elapsedTime = Time.deltaTime;
+            Evaporate(elapsedTime);
+        }
+    }
+    
     public void SetSoilProperties(LandType landType)
     {
         this.landType = landType;
@@ -31,7 +40,7 @@ public class SoilTile : MonoBehaviour
         if (landType == LandType.Dessert)
         {
             waterPercentage = 100;
-            sponginess = 100; //TODO
+            evaporationVariable = 1;
         }
 
         _tileLabel.color = GetColorByWaterPercentage(waterPercentage);
@@ -41,7 +50,7 @@ public class SoilTile : MonoBehaviour
     public void UpdateWater(float waterAmount)
     {
         waterPercentage += waterAmount;
-        waterPercentage = Math.Clamp(waterPercentage, 0, sponginess);
+        waterPercentage = Math.Clamp(waterPercentage, 0, 1000);
         _tileLabel.color = GetColorByWaterPercentage(waterPercentage);
         _tileLabel.text = ((int)waterPercentage).ToString();
     }
@@ -59,8 +68,8 @@ public class SoilTile : MonoBehaviour
         };
     }
 
-    private void CheckIfStable()
+    private void Evaporate(float elapsedTime)
     {
-
+        UpdateWater(-elapsedTime / evaporationVariable);
     }
 }
