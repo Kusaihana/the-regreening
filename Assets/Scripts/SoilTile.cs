@@ -18,8 +18,9 @@ public class SoilTile : MonoBehaviour
 {
     [SerializeField] private TMP_Text _tileLabel;
     public float waterPercentage;
-    public float waterRetention;
+    public float sponginess;
     public LandType landType;
+    public int numOfPlants;
 
     private int _seedAmount;
 
@@ -30,6 +31,7 @@ public class SoilTile : MonoBehaviour
         if (landType == LandType.Dessert)
         {
             waterPercentage = 100;
+            sponginess = 100; //TODO
         }
 
         _tileLabel.color = GetColorByWaterPercentage(waterPercentage);
@@ -39,7 +41,7 @@ public class SoilTile : MonoBehaviour
     public void UpdateWater(float waterAmount)
     {
         waterPercentage += waterAmount;
-        waterPercentage = Math.Clamp(waterPercentage, 0, 1000); //TODO do better
+        waterPercentage = Math.Clamp(waterPercentage, 0, sponginess);
         _tileLabel.color = GetColorByWaterPercentage(waterPercentage);
         _tileLabel.text = ((int)waterPercentage).ToString();
     }

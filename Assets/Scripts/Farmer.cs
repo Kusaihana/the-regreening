@@ -9,6 +9,8 @@ public class Farmer : MonoBehaviour
     public float moveSpeed = 5f;
     public LayerMask tileLayer;
 
+    private const int MaxNumOfPlants = 4;
+
     void Update()
     {
         var horizontalInput = Input.GetAxis("Horizontal");
@@ -64,11 +66,12 @@ public class Farmer : MonoBehaviour
         {
             SoilTile soilTile = hit.transform.GetComponent<SoilTile>();
 
-            if (soilTile != null)
+            if (soilTile != null && soilTile.numOfPlants < MaxNumOfPlants)
             {
                 var plantGo = Instantiate(_plantPrefab, transform.position, Quaternion.identity);
                 var plant = plantGo.GetComponent<Plant>();
                 plant.SetTile(soilTile);
+                soilTile.numOfPlants++;
             }
         }
     }
