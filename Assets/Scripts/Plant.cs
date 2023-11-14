@@ -50,7 +50,7 @@ public class Plant : MonoBehaviour
 
         if (_tileAssigned != null && _tileAssigned.waterPercentage > 0)
         {
-            _tileAssigned.UseWater(elapsedTime / stageParams.waterUsage);
+            _tileAssigned.UpdateWater(-elapsedTime / stageParams.waterUsage);
         }
     }
 

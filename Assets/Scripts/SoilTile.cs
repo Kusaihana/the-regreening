@@ -36,9 +36,9 @@ public class SoilTile : MonoBehaviour
         _tileLabel.text = waterPercentage.ToString();
     }
 
-    public void UseWater(float waterAmount)
+    public void UpdateWater(float waterAmount)
     {
-        waterPercentage -= waterAmount;
+        waterPercentage += waterAmount;
         waterPercentage = Math.Clamp(waterPercentage, 0, 1000); //TODO do better
         _tileLabel.color = GetColorByWaterPercentage(waterPercentage);
         _tileLabel.text = ((int)waterPercentage).ToString();

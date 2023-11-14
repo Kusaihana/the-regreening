@@ -50,8 +50,7 @@ public class Farmer : MonoBehaviour
 
             if (soilTile != null)
             {
-                //TODO
-                Debug.Log("Watering the tile!");
+                soilTile.UpdateWater(1);
             }
         }
     }
