@@ -67,7 +67,9 @@ public class Farmer : MonoBehaviour
 
             if (soilTile != null)
             {
-                Instantiate(_plantPrefab, transform.position, Quaternion.identity);
+                var plantGo = Instantiate(_plantPrefab, transform.position, Quaternion.identity);
+                var plant = plantGo.GetComponent<Plant>();
+                plant.SetTile(soilTile);
             }
         }
     }

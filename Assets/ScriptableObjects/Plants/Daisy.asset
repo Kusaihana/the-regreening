@@ -20,21 +20,25 @@ MonoBehaviour:
       max: 8
     waterRequirement: 30
     nutritionRequirement: 10
+    waterUsage: 1
   seedlingStage:
     growthTimeRange:
       min: 10
       max: 12
     waterRequirement: 20
     nutritionRequirement: 10
+    waterUsage: 1
   saplingStage:
     growthTimeRange:
       min: 12
       max: 15
     waterRequirement: 10
     nutritionRequirement: 20
+    waterUsage: 1
   adultStage:
     growthTimeRange:
       min: 15
       max: 20
     waterRequirement: 20
     nutritionRequirement: 5
+    waterUsage: 1

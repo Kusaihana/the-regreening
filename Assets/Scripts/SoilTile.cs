@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -33,6 +34,14 @@ public class SoilTile : MonoBehaviour
 
         _tileLabel.color = GetColorByWaterPercentage(waterPercentage);
         _tileLabel.text = waterPercentage.ToString();
+    }
+
+    public void UseWater(float waterAmount)
+    {
+        waterPercentage -= waterAmount;
+        waterPercentage = Math.Clamp(waterPercentage, 0, 1000); //TODO do better
+        _tileLabel.color = GetColorByWaterPercentage(waterPercentage);
+        _tileLabel.text = ((int)waterPercentage).ToString();
     }
     
     private Color GetColorByWaterPercentage(float waterPercentage)

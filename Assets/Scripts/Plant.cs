@@ -35,18 +35,22 @@ public class Plant : MonoBehaviour
         {
             float elapsedTime = Time.deltaTime;
             UpdatePlantGrowth(elapsedTime);
-            UseWater();
+            UseWater(elapsedTime);
         }
     }
 
-    private void UseWater()
+    public void SetTile(SoilTile soilTile)
+    {
+        _tileAssigned = soilTile;
+    }
+    
+    private void UseWater(float elapsedTime)
     {
         GrowthStageParameters stageParams = GetCurrentStageParameters();
 
         if (_tileAssigned != null && _tileAssigned.waterPercentage > 0)
         {
-            _tileAssigned.waterPercentage -= stageParams.waterUsage;
-            _tileAssigned.waterPercentage = Math.Clamp(_tileAssigned.waterPercentage, 0, 1000); //TODO do better
+            _tileAssigned.UseWater(elapsedTime / stageParams.waterUsage);
         }
     }
 
