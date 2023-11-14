@@ -72,6 +72,7 @@ public class Farmer : MonoBehaviour
                 var plant = plantGo.GetComponent<Plant>();
                 plant.SetTile(soilTile);
                 soilTile.numOfPlants++;
+                soilTile.UpdateEvaporationCoefficient(10f); //TODO
             }
         }
     }

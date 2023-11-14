@@ -8,7 +8,6 @@ using Random = UnityEngine.Random;
 
 public class Plant : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _stageLabel;
     [SerializeField] private PlantType _plantType;
     [SerializeField] private GrowthStage _currentStage;
     [SerializeField] private MeshRenderer _meshRenderer;
@@ -148,7 +147,6 @@ public class Plant : MonoBehaviour
     private void UpdatePlantAppearance()
     {
         _visual.SetInt("_AtlasTile", (int)_currentStage);
-        _stageLabel.text = _currentStage.ToString();
     }
 
     private void HandlePlantDeath()

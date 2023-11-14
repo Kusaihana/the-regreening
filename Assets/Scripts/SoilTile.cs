@@ -47,6 +47,11 @@ public class SoilTile : MonoBehaviour
         _tileLabel.text = waterPercentage.ToString();
     }
 
+    public void UpdateEvaporationCoefficient(float coefficient)
+    {
+        evaporationVariable *= coefficient;
+    }
+    
     public void UpdateWater(float waterAmount)
     {
         waterPercentage += waterAmount;

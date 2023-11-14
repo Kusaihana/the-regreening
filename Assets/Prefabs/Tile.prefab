@@ -48,8 +48,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tileLabel: {fileID: 4509612022699763320}
   waterPercentage: 0
-  waterRetention: 0
+  evaporationVariable: 0
   landType: 0
+  numOfPlants: 0
 --- !u!65 &4975090899609176343
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -69,7 +70,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2, y: 2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7402396405344198430
 GameObject:
@@ -82,7 +83,7 @@ GameObject:
   - component: {fileID: 457433214368835783}
   - component: {fileID: 622032440278092432}
   - component: {fileID: 4509612022699763320}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
