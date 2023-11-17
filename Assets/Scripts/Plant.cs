@@ -60,7 +60,7 @@ public class Plant : MonoBehaviour
         // Check if the plant has enough water to continue growing
         if (stageParams.waterRequirement > 0)
         {
-            float waterAvailable = 50;// TODO Get water availability from nearby tiles or other sources
+            float waterAvailable = _tileAssigned.waterPercentage;
             if (waterAvailable < stageParams.waterRequirement)
             {
                 // Reduce health if there's not enough water
@@ -69,6 +69,8 @@ public class Plant : MonoBehaviour
                     _currentHealth -= (stageParams.waterRequirement - waterAvailable) * elapsedTime;
                     _currentHealth = Mathf.Clamp(_currentHealth, 0, _plantType.maxHealth);
                 }
+
+                return;
             }
         }
 
