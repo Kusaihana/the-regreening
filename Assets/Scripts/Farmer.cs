@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Farmer : MonoBehaviour
@@ -39,6 +40,11 @@ public class Farmer : MonoBehaviour
         {
             SeedPlant();
         }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            RemovePlant();
+        }
     }
 
     void WaterTile()
@@ -72,7 +78,30 @@ public class Farmer : MonoBehaviour
                 var plant = plantGo.GetComponent<Plant>();
                 plant.SetTile(soilTile);
                 soilTile.numOfPlants++;
+                soilTile.plantsOnTile.Add(plant);
                 soilTile.UpdateEvaporationCoefficient(10f); //TODO
+            }
+        }
+    }
+
+    private void RemovePlant()
+    {
+        var ray = new Ray(transform.position, transform.forward);
+        RaycastHit hit;
+        
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, tileLayer))
+        {
+            SoilTile soilTile = hit.transform.GetComponent<SoilTile>();
+
+            if (soilTile != null && soilTile.numOfPlants < MaxNumOfPlants)
+            {
+                var plantToRemove = soilTile.plantsOnTile.FirstOrDefault();
+
+                if (plantToRemove != null)
+                {
+                    soilTile.plantsOnTile.Remove(plantToRemove);
+                    Destroy(plantToRemove.gameObject);
+                }
             }
         }
     }
