@@ -72,12 +72,11 @@ public class Farmer : MonoBehaviour
         {
             SoilTile soilTile = hit.transform.GetComponent<SoilTile>();
 
-            if (soilTile != null && soilTile.numOfPlants < MaxNumOfPlants)
+            if (soilTile != null && soilTile.plantsOnTile.Count < MaxNumOfPlants)
             {
                 var plantGo = Instantiate(_plantPrefab, transform.position, Quaternion.identity);
                 var plant = plantGo.GetComponent<Plant>();
                 plant.SetTile(soilTile);
-                soilTile.numOfPlants++;
                 soilTile.plantsOnTile.Add(plant);
                 soilTile.UpdateEvaporationCoefficient(10f); //TODO
             }
@@ -93,7 +92,7 @@ public class Farmer : MonoBehaviour
         {
             SoilTile soilTile = hit.transform.GetComponent<SoilTile>();
 
-            if (soilTile != null && soilTile.numOfPlants < MaxNumOfPlants)
+            if (soilTile != null && soilTile.plantsOnTile.Count < MaxNumOfPlants)
             {
                 var plantToRemove = soilTile.plantsOnTile.FirstOrDefault();
 

@@ -20,7 +20,6 @@ public class SoilTile : MonoBehaviour
     public float waterPercentage;
     public float evaporationVariable;
     public LandType landType;
-    public int numOfPlants;
     public List<Plant> plantsOnTile = new List<Plant>();
 
     private int _seedAmount;
