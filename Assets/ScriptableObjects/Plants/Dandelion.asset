@@ -12,7 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15d0b708f8a5aec4791587a75f4547d4, type: 3}
   m_Name: Dandelion
   m_EditorClassIdentifier: 
-  plantName: Daisy
+  commonName: Dandelion
+  latinName: Taraxacum officinale
+  description: Taraxacum officinale is a herbaceous perennial flowering plant in
+    the daisy family Asteraceae (syn. Compositae). The common dandelion is well known
+    for its yellow flower heads that turn into round balls of many silver-tufted
+    fruits that disperse in the wind. These balls are called "clocks" in both British
+    and American English.
+  distribution: Originally being native to Eurasia, but can also be found across
+    the Americas, southern Africa, India, Australia and New Zealand as a result of
+    incidental or deliberate introductions.  The common dandelion grows in temperate
+    regions of the world in areas with moist soils. They are very hardy plants, able
+    to grow in a variety of environments, and are tolerant of crowding, extremes
+    of temperature, and low moisture.
+  seedIcon: {fileID: 0}
   maxHealth: 100
   seedStage:
     growthTimeRange:

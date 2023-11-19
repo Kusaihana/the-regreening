@@ -890,6 +890,7 @@ GameObject:
   - component: {fileID: 2086937487}
   - component: {fileID: 2086937491}
   - component: {fileID: 2086937492}
+  - component: {fileID: 2086937493}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1022,10 +1023,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _plantPrefab: {fileID: 8829967018354640548, guid: 54335616a0c4b194cbb8518635687bf2, type: 3}
+  _plantType: {fileID: 11400000, guid: 133cdf25a5a06b041b1a39a6fe73f667, type: 2}
+  inventory: {fileID: 0}
   moveSpeed: 5
   tileLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &2086937493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086937486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 690d62f76c410f54f9296fb5b11c4ea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wateringCanFillAmount: 50
+  seedTypes:
+  - {fileID: 11400000, guid: 133cdf25a5a06b041b1a39a6fe73f667, type: 2}
+  - {fileID: 11400000, guid: b54373e4dfc236a4ca0efa4bce1ce4e2, type: 2}
+  - {fileID: 11400000, guid: c8eb660ae7386134e9cf2ee4cd52239c, type: 2}
+  - {fileID: 11400000, guid: 2b5719403a1e6884eac2d18488e86b1b, type: 2}
 --- !u!1001 &6315469891927141272
 PrefabInstance:
   m_ObjectHideFlags: 0

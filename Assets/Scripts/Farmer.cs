@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,11 +7,18 @@ using UnityEngine;
 public class Farmer : MonoBehaviour
 {
     [SerializeField] private GameObject _plantPrefab;
+    [SerializeField] private PlantType _plantType;
     
+    public Inventory inventory;
     public float moveSpeed = 5f;
     public LayerMask tileLayer;
 
     private const int MaxNumOfPlants = 4;
+
+    private void Awake()
+    {
+        inventory = GetComponent<Inventory>();
+    }
 
     void Update()
     {
@@ -38,7 +46,11 @@ public class Farmer : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            SeedPlant();
+            // check if there are enough seeds in the inventory
+            if (inventory.PlantSeed(_plantType))
+            {
+                SeedPlant();
+            }
         }
         
         if (Input.GetKeyDown(KeyCode.Alpha3))

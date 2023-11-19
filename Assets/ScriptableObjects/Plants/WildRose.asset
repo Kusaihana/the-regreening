@@ -12,7 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15d0b708f8a5aec4791587a75f4547d4, type: 3}
   m_Name: WildRose
   m_EditorClassIdentifier: 
-  plantName: Daisy
+  commonName: Wild Rose
+  latinName: Rosa acicularis
+  description: "Rosa acicularis is a flowering plant in the Rosaceae family. It is
+    commonly known as the prickly wild rose, prickly rose, bristly rose, wild rose
+    or Arctic rose.  Rosa acicularis is a deciduous shrub growing 1\u20133 m tall.
+    The leaves are pinnate, 7\u201314 cm long, with three to seven leaflets. The
+    leaflets are ovate, with serrate (toothed) margins. The flowers are pink (rarely
+    white), 3.5\u20135 cm diameter; the hips are red, pear-shaped to ovoid, 10\u201315
+    mm diameter."
+  distribution: It is a species of wild rose with a Holarctic distribution in northern
+    regions of Asia, Europe, and North America.  Its native habitats include thickets,
+    stream banks, rocky bluffs, and wooded hillsides.
+  seedIcon: {fileID: 0}
   maxHealth: 100
   seedStage:
     growthTimeRange:

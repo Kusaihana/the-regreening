@@ -12,7 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15d0b708f8a5aec4791587a75f4547d4, type: 3}
   m_Name: CatGrass
   m_EditorClassIdentifier: 
-  plantName: Daisy
+  commonName: Cat Grass
+  latinName: Arrhenatherum elatius
+  description: Arrhenatherum elatius is a species of flowering plant in the grass
+    family Poaceae. This coarse grass can grow to 150 centimeters (59 in) tall. The
+    leaves are bright green, broad, slightly hairy, and rough.  It flowers from June
+    to September.
+  distribution: It is native to Europe, western Asia, and northern Africa.  It is
+    found on road verges, along hedges and riverbanks. It can colonise and stabilise
+    limestone scree, bare calcareous cliffs, maritime shingle and coastal dunes.
+  seedIcon: {fileID: 0}
   maxHealth: 100
   seedStage:
     growthTimeRange:

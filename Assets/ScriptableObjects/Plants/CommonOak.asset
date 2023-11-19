@@ -12,7 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15d0b708f8a5aec4791587a75f4547d4, type: 3}
   m_Name: CommonOak
   m_EditorClassIdentifier: 
-  plantName: Daisy
+  commonName: Common Oak
+  latinName: Quercus robur
+  description: Quercus robur is a species of flowering plant in the beech and oak
+    family, Fagaceae.  Quercus robur is a deciduous tree up to 40 m tall, with a
+    single stout trunk that can be as much as 11 m in girth (circumference at breast
+    height) or even 14 m in pollarded specimens.
+  distribution: It is a large tree, native to most of Europe and western Asia, and
+    is widely cultivated in other temperate regions.  It grows on soils of near neutral
+    acidity in the lowlands and is notable for its value to natural ecosystems, supporting
+    a very wide diversity of herbivorous insects and other pests, predators and pathogens
+  seedIcon: {fileID: 0}
   maxHealth: 100
   seedStage:
     growthTimeRange:
