@@ -1023,7 +1023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _plantPrefab: {fileID: 8829967018354640548, guid: 54335616a0c4b194cbb8518635687bf2, type: 3}
-  _plantType: {fileID: 11400000, guid: 133cdf25a5a06b041b1a39a6fe73f667, type: 2}
+  _seedType: {fileID: 11400000, guid: 133cdf25a5a06b041b1a39a6fe73f667, type: 2}
   inventory: {fileID: 0}
   moveSpeed: 5
   tileLayer:

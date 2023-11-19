@@ -8,7 +8,8 @@ using Random = UnityEngine.Random;
 
 public class Plant : MonoBehaviour
 {
-    [SerializeField] private PlantType _plantType;
+    public PlantType plantType;
+    
     [SerializeField] private GrowthStage _currentStage;
     [SerializeField] private MeshRenderer _meshRenderer;
 
@@ -22,7 +23,7 @@ public class Plant : MonoBehaviour
     {
         _currentStage = GrowthStage.Seed;
         _growthProgress = 0;
-        _currentHealth = _plantType.maxHealth;
+        _currentHealth = plantType.maxHealth;
         SetRandomGrowthTime();
 
         _visual = _meshRenderer.material;
@@ -67,7 +68,7 @@ public class Plant : MonoBehaviour
                 if (_currentHealth > 0)
                 {
                     _currentHealth -= (stageParams.waterRequirement - waterAvailable) * elapsedTime;
-                    _currentHealth = Mathf.Clamp(_currentHealth, 0, _plantType.maxHealth);
+                    _currentHealth = Mathf.Clamp(_currentHealth, 0, plantType.maxHealth);
                 }
 
                 return;
@@ -89,13 +90,13 @@ public class Plant : MonoBehaviour
         switch (_currentStage)
         {
             case GrowthStage.Seed:
-                return _plantType.seedStage;
+                return plantType.seedStage;
             case GrowthStage.Seedling:
-                return _plantType.seedlingStage;
+                return plantType.seedlingStage;
             case GrowthStage.Sapling:
-                return _plantType.saplingStage;
+                return plantType.saplingStage;
             case GrowthStage.Adult:
-                return _plantType.adultStage;
+                return plantType.adultStage;
             default:
                 return new GrowthStageParameters();
         }
@@ -108,7 +109,7 @@ public class Plant : MonoBehaviour
         if (nextStage != GrowthStage.Dead)
         {
             _currentStage = nextStage;
-            _currentHealth = _plantType.maxHealth;
+            _currentHealth = plantType.maxHealth;
             _growthProgress = 0;
             SetRandomGrowthTime();
             

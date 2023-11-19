@@ -160,7 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54b1f9c9b7ecc7448a58ac3923e0cbd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stageLabel: {fileID: 0}
-  _plantType: {fileID: 11400000, guid: 4d6aa086516506f41b369ad984726b6e, type: 2}
+  plantType: {fileID: 11400000, guid: 133cdf25a5a06b041b1a39a6fe73f667, type: 2}
   _currentStage: 0
   _meshRenderer: {fileID: 5425427503043212978}

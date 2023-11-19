@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Farmer : MonoBehaviour
 {
     [SerializeField] private GameObject _plantPrefab;
-    [SerializeField] private PlantType _plantType;
+    [SerializeField] private PlantType _seedType;
     
     public Inventory inventory;
     public float moveSpeed = 5f;
@@ -47,7 +48,7 @@ public class Farmer : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             // check if there are enough seeds in the inventory
-            if (inventory.PlantSeed(_plantType))
+            if (inventory.PlantSeed(_seedType))
             {
                 SeedPlant();
             }
@@ -114,6 +115,10 @@ public class Farmer : MonoBehaviour
                 {
                     soilTile.plantsOnTile.Remove(plantToRemove);
                     Destroy(plantToRemove.gameObject);
+                    
+                    // removing plant drops some seeds
+                    var numOfSeeds = Random.Range(0, 5);
+                    inventory.AddSeed(plantToRemove.plantType, numOfSeeds);
                 }
             }
         }
