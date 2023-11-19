@@ -58,7 +58,7 @@ public class Farmer : MonoBehaviour
 
             if (soilTile != null)
             {
-                soilTile.UpdateWater(1);
+                soilTile.UpdateWater(10);
             }
         }
     }
