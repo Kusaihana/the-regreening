@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum GrowthStage
 {
@@ -15,7 +16,11 @@ public enum GrowthStage
 [CreateAssetMenu(menuName = "Plant Type")]
 public class PlantType : ScriptableObject
 {
-    public string plantName;
+    public string commonName;
+    public string latinName;
+    public string description;
+    public string distribution;
+    public Image seedIcon;
     public int maxHealth;
     
     public GrowthStageParameters seedStage;

@@ -47,7 +47,7 @@ public class Plant : MonoBehaviour
     {
         GrowthStageParameters stageParams = GetCurrentStageParameters();
 
-        if (_tileAssigned != null && _tileAssigned.waterPercentage > 0)
+        if (_tileAssigned != null && _tileAssigned.waterPercentage > 0 && _currentStage != GrowthStage.Dead)
         {
             _tileAssigned.UpdateWater(-elapsedTime / stageParams.waterUsage);
         }
