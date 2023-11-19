@@ -23,6 +23,7 @@ MonoBehaviour:
     limestone scree, bare calcareous cliffs, maritime shingle and coastal dunes.
   seedIcon: {fileID: 0}
   maxHealth: 100
+  plantPrefab: {fileID: 8829967018354640548, guid: 54335616a0c4b194cbb8518635687bf2, type: 3}
   seedStage:
     growthTimeRange:
       min: 0.5

@@ -26,6 +26,7 @@ MonoBehaviour:
     stream banks, rocky bluffs, and wooded hillsides.
   seedIcon: {fileID: 0}
   maxHealth: 100
+  plantPrefab: {fileID: 8829967018354640548, guid: 8bba25c86a1c58543b4eb7d06b8dad0c, type: 3}
   seedStage:
     growthTimeRange:
       min: 1

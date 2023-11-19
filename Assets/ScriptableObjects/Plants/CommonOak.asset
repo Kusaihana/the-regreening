@@ -24,6 +24,7 @@ MonoBehaviour:
     a very wide diversity of herbivorous insects and other pests, predators and pathogens
   seedIcon: {fileID: 0}
   maxHealth: 100
+  plantPrefab: {fileID: 8829967018354640548, guid: bb5af897dc51e544b9cfe44f3f3d5265, type: 3}
   seedStage:
     growthTimeRange:
       min: 2

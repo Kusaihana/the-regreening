@@ -27,6 +27,7 @@ MonoBehaviour:
     of temperature, and low moisture.
   seedIcon: {fileID: 0}
   maxHealth: 100
+  plantPrefab: {fileID: 8829967018354640548, guid: 4eaa5bb46feb0b743a71f4cd3c8cc0e9, type: 3}
   seedStage:
     growthTimeRange:
       min: 0.8
