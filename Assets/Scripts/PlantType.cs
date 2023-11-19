@@ -29,7 +29,7 @@ public class GrowthStageParameters
 {
     public Range growthTimeRange; //in game days
     public float waterRequirement;
-    public float nutritionRequirement; //NTH
+    public float evaporationEffect;
     public float waterUsage;
 }
 

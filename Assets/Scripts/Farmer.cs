@@ -78,7 +78,9 @@ public class Farmer : MonoBehaviour
                 var plant = plantGo.GetComponent<Plant>();
                 plant.SetTile(soilTile);
                 soilTile.plantsOnTile.Add(plant);
-                soilTile.UpdateEvaporationCoefficient(10f); //TODO
+
+                var evaCoef = plant.GetCurrentStageParameters().evaporationEffect;
+                soilTile.UpdateEvaporationCoefficient(evaCoef);
             }
         }
     }

@@ -42,7 +42,7 @@ public class Plant : MonoBehaviour
     {
         _tileAssigned = soilTile;
     }
-    
+
     private void UseWater(float elapsedTime)
     {
         GrowthStageParameters stageParams = GetCurrentStageParameters();
@@ -84,7 +84,7 @@ public class Plant : MonoBehaviour
         
     }
     
-    private GrowthStageParameters GetCurrentStageParameters()
+    public GrowthStageParameters GetCurrentStageParameters()
     {
         switch (_currentStage)
         {
