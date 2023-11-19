@@ -1,8 +1,11 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    [SerializeField] private TMP_Text _seedAmountText;
+    
     public Dictionary<string, int> seeds = new Dictionary<string, int>();
     public int wateringCanFillAmount = 0;
 
@@ -28,6 +31,8 @@ public class Inventory : MonoBehaviour
         {
             seeds.Add(seedName, quantity);
         }
+
+        _seedAmountText.text = "Seed amount: " + seeds[seedName];
     }
 
     public bool PlantSeed(PlantType seed)
@@ -37,6 +42,7 @@ public class Inventory : MonoBehaviour
         if (seeds.ContainsKey(seedName) && seeds[seedName] > 0)
         {
             seeds[seedName]--;
+            _seedAmountText.text = "Seed amount: " + seeds[seedName];
             return true;
         }
 
