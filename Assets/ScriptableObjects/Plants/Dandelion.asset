@@ -29,29 +29,29 @@ MonoBehaviour:
   maxHealth: 100
   seedStage:
     growthTimeRange:
-      min: 5
-      max: 8
+      min: 0.8
+      max: 1.4
     waterRequirement: 30
     evaporationEffect: 10
-    waterUsage: 1
+    waterUsage: 10
   seedlingStage:
     growthTimeRange:
-      min: 10
-      max: 12
+      min: 1
+      max: 2
     waterRequirement: 20
     evaporationEffect: 20
-    waterUsage: 2
+    waterUsage: 12
   saplingStage:
     growthTimeRange:
-      min: 12
-      max: 15
+      min: 2
+      max: 3
     waterRequirement: 10
     evaporationEffect: 30
-    waterUsage: 3
+    waterUsage: 25
   adultStage:
     growthTimeRange:
-      min: 15
-      max: 20
+      min: 3
+      max: 4
     waterRequirement: 20
     evaporationEffect: 40
-    waterUsage: 5
+    waterUsage: 50

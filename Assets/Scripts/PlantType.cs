@@ -22,6 +22,7 @@ public class PlantType : ScriptableObject
     public string distribution;
     public Image seedIcon;
     public int maxHealth;
+    public GameObject plantPrefab;
     
     public GrowthStageParameters seedStage;
     public GrowthStageParameters seedlingStage;

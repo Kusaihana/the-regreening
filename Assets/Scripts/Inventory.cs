@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _seedAmountText;
+    [SerializeField] private TMP_Text _dandelionText;
+    [SerializeField] private TMP_Text _commonOakText;
+    [SerializeField] private TMP_Text _catGrassText;
+    [SerializeField] private TMP_Text _wildRoseText;
     
     public Dictionary<string, int> seeds = new Dictionary<string, int>();
     public int wateringCanFillAmount = 0;
@@ -32,7 +35,27 @@ public class Inventory : MonoBehaviour
             seeds.Add(seedName, quantity);
         }
 
-        _seedAmountText.text = "Seed amount: " + seeds[seedName];
+        UpdateSeedText(seed.commonName);
+    }
+
+    private void UpdateSeedText(string seedName)
+    {
+        if (seedName == "Dandelion")
+        {
+            _dandelionText.text = $"Dandelion: {seeds[seedName]}";
+        }
+        else if (seedName == "Wild Rose")
+        {
+            _wildRoseText.text = $"Wild Rose: {seeds[seedName]}";
+        }
+        else if (seedName == "Common Oak")
+        {
+            _commonOakText.text = $"Common Oak: {seeds[seedName]}";
+        }
+        else if (seedName == "Cat Grass")
+        {
+            _catGrassText.text = $"Cat Grass: {seeds[seedName]}";
+        }
     }
 
     public bool PlantSeed(PlantType seed)
@@ -42,7 +65,7 @@ public class Inventory : MonoBehaviour
         if (seeds.ContainsKey(seedName) && seeds[seedName] > 0)
         {
             seeds[seedName]--;
-            _seedAmountText.text = "Seed amount: " + seeds[seedName];
+            UpdateSeedText(seed.commonName);
             return true;
         }
 

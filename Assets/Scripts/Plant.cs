@@ -33,7 +33,7 @@ public class Plant : MonoBehaviour
     {
         if (_currentStage != GrowthStage.Dead)
         {
-            float elapsedTime = Time.deltaTime;
+            float elapsedTime = Time.deltaTime / 60f;
             UpdatePlantGrowth(elapsedTime);
             UseWater(elapsedTime);
         }
@@ -50,7 +50,7 @@ public class Plant : MonoBehaviour
 
         if (_tileAssigned != null && _tileAssigned.waterPercentage > 0 && _currentStage != GrowthStage.Dead)
         {
-            _tileAssigned.UpdateWater(-elapsedTime / stageParams.waterUsage);
+            _tileAssigned.UpdateWater(-elapsedTime * stageParams.waterUsage);
         }
     }
 

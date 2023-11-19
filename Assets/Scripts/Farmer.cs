@@ -7,8 +7,7 @@ using Random = UnityEngine.Random;
 
 public class Farmer : MonoBehaviour
 {
-    [SerializeField] private GameObject _plantPrefab;
-    [SerializeField] private PlantType _seedType;
+    [SerializeField] private List<PlantType> _seedTypes;
     
     public Inventory inventory;
     public float moveSpeed = 5f;
@@ -40,23 +39,50 @@ public class Farmer : MonoBehaviour
     
     private void CheckForInteraction()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             WaterTile();
         }
+
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            RemovePlant();
+        }
         
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             // check if there are enough seeds in the inventory
-            if (inventory.PlantSeed(_seedType))
+            if (inventory.PlantSeed(_seedTypes[0]))
             {
-                SeedPlant();
+                SeedPlant(_seedTypes[0]);
             }
         }
         
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            RemovePlant();
+            // check if there are enough seeds in the inventory
+            if (inventory.PlantSeed(_seedTypes[1]))
+            {
+                SeedPlant(_seedTypes[1]);
+            }
+        }
+        
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            // check if there are enough seeds in the inventory
+            if (inventory.PlantSeed(_seedTypes[2]))
+            {
+                SeedPlant(_seedTypes[2]);
+            }
+        }
+        
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            // check if there are enough seeds in the inventory
+            if (inventory.PlantSeed(_seedTypes[3]))
+            {
+                SeedPlant(_seedTypes[3]);
+            }
         }
     }
 
@@ -76,7 +102,7 @@ public class Farmer : MonoBehaviour
         }
     }
 
-    void SeedPlant()
+    void SeedPlant(PlantType seedType)
     {
         var ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
@@ -87,7 +113,7 @@ public class Farmer : MonoBehaviour
 
             if (soilTile != null && soilTile.plantsOnTile.Count < MaxNumOfPlants)
             {
-                var plantGo = Instantiate(_plantPrefab, transform.position, Quaternion.identity);
+                var plantGo = Instantiate(seedType.plantPrefab, transform.position, Quaternion.identity);
                 var plant = plantGo.GetComponent<Plant>();
                 plant.SetTile(soilTile);
                 soilTile.plantsOnTile.Add(plant);

@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 1977878571648598283}
   - component: {fileID: 698077401689861976}
   m_Layer: 7
-  m_Name: Daisy
+  m_Name: CatGrass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
