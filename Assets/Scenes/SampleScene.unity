@@ -1834,7 +1834,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e895f158e4f5eb4caddb03700dadec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _plantPrefab: {fileID: 8829967018354640548, guid: 54335616a0c4b194cbb8518635687bf2, type: 3}
   _seedTypes:
   - {fileID: 11400000, guid: c8eb660ae7386134e9cf2ee4cd52239c, type: 2}
   - {fileID: 11400000, guid: 133cdf25a5a06b041b1a39a6fe73f667, type: 2}
@@ -1845,6 +1844,9 @@ MonoBehaviour:
   tileLayer:
     serializedVersion: 2
     m_Bits: 64
+  plantLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &2086937493
 MonoBehaviour:
   m_ObjectHideFlags: 0

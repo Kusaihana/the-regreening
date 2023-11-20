@@ -12,6 +12,7 @@ public class Farmer : MonoBehaviour
     public Inventory inventory;
     public float moveSpeed = 5f;
     public LayerMask tileLayer;
+    public LayerMask plantLayer; 
 
     private const int MaxNumOfPlants = 4;
 
@@ -52,13 +53,13 @@ public class Farmer : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             // check if there are enough seeds in the inventory
-            if (inventory.PlantSeed(_seedTypes[0]))
+            if (IsValidPlantingPosition() && inventory.PlantSeed(_seedTypes[0]))
             {
                 SeedPlant(_seedTypes[0]);
             }
         }
         
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (IsValidPlantingPosition() && Input.GetKeyDown(KeyCode.Alpha2))
         {
             // check if there are enough seeds in the inventory
             if (inventory.PlantSeed(_seedTypes[1]))
@@ -67,7 +68,7 @@ public class Farmer : MonoBehaviour
             }
         }
         
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        else if (IsValidPlantingPosition() && Input.GetKeyDown(KeyCode.Alpha3))
         {
             // check if there are enough seeds in the inventory
             if (inventory.PlantSeed(_seedTypes[2]))
@@ -76,7 +77,7 @@ public class Farmer : MonoBehaviour
             }
         }
         
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        else if (IsValidPlantingPosition() && Input.GetKeyDown(KeyCode.Alpha4))
         {
             // check if there are enough seeds in the inventory
             if (inventory.PlantSeed(_seedTypes[3]))
@@ -148,5 +149,13 @@ public class Farmer : MonoBehaviour
                 }
             }
         }
+    }
+    
+    private bool IsValidPlantingPosition()
+    {
+        var ray = new Ray(transform.position, transform.forward);
+        RaycastHit[] hits = Physics.RaycastAll(ray, Mathf.Infinity, plantLayer);
+        
+        return hits.Length == 0;
     }
 }

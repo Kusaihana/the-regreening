@@ -125,6 +125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1977878571648598283}
   - component: {fileID: 698077401689861976}
+  - component: {fileID: 6699984784236271352}
   m_Layer: 7
   m_Name: CatGrass
   m_TagString: Untagged
@@ -163,3 +164,24 @@ MonoBehaviour:
   plantType: {fileID: 11400000, guid: 133cdf25a5a06b041b1a39a6fe73f667, type: 2}
   _currentStage: 0
   _meshRenderer: {fileID: 5425427503043212978}
+--- !u!65 &6699984784236271352
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8829967018354640548}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 1}
