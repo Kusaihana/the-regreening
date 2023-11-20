@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54b1f9c9b7ecc7448a58ac3923e0cbd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantType: {fileID: 11400000, guid: 133cdf25a5a06b041b1a39a6fe73f667, type: 2}
+  plantType: {fileID: 11400000, guid: 2b5719403a1e6884eac2d18488e86b1b, type: 2}
   _currentStage: 0
   _meshRenderer: {fileID: 5425427503043212978}
 --- !u!65 &6408013516594810515

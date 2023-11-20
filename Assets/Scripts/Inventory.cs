@@ -35,7 +35,7 @@ public class Inventory : MonoBehaviour
             seeds.Add(seedName, quantity);
         }
 
-        UpdateSeedText(seed.commonName);
+        UpdateSeedText(seedName);
     }
 
     private void UpdateSeedText(string seedName)
