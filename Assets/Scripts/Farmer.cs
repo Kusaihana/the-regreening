@@ -26,15 +26,25 @@ public class Farmer : MonoBehaviour
         var horizontalInput = Input.GetAxis("Horizontal");
         var verticalInput = Input.GetAxis("Vertical");
         
+        if (horizontalInput > 0)
+        {
+            transform.GetChild(0).rotation = new Quaternion(0,180,0,0);
+        }
+        else if (horizontalInput != 0)
+        {
+            transform.GetChild(0).rotation = new Quaternion(0,0,0,0);
+        }
+
         var movement = new Vector3(horizontalInput, verticalInput, 0f).normalized;
+
         MovePlayer(movement);
         
         CheckForInteraction();
     }
 
-    private void MovePlayer(Vector3 direction)
+    private void MovePlayer(Vector3 movement)
     {
-        var movementAmount = direction * moveSpeed * Time.deltaTime;
+        var movementAmount = movement * moveSpeed * Time.deltaTime;
         transform.Translate(movementAmount, Space.World);
     }
     

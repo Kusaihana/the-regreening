@@ -29,7 +29,7 @@ public class SoilTile : MonoBehaviour
         if (waterPercentage > 0)
         {
             float elapsedTime = Time.deltaTime;
-            //Evaporate(elapsedTime);
+            Evaporate(elapsedTime);
         }
     }
     

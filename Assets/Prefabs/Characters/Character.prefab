@@ -9,7 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5215626969244639911}
-  m_Layer: 0
+  - component: {fileID: 350643677109137}
+  - component: {fileID: 6408547781371335507}
+  - component: {fileID: 7127045764111263525}
+  - component: {fileID: 1311247650911219854}
+  m_Layer: 8
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,6 +36,100 @@ Transform:
   - {fileID: 3446388835342668837}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!143 &350643677109137
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047344369010755504}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &6408547781371335507
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047344369010755504}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7127045764111263525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047344369010755504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e895f158e4f5eb4caddb03700dadec5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _seedTypes:
+  - {fileID: 11400000, guid: c8eb660ae7386134e9cf2ee4cd52239c, type: 2}
+  - {fileID: 11400000, guid: 133cdf25a5a06b041b1a39a6fe73f667, type: 2}
+  - {fileID: 11400000, guid: 2b5719403a1e6884eac2d18488e86b1b, type: 2}
+  - {fileID: 11400000, guid: b54373e4dfc236a4ca0efa4bce1ce4e2, type: 2}
+  inventory: {fileID: 0}
+  moveSpeed: 5
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  plantLayer:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!114 &1311247650911219854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047344369010755504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 690d62f76c410f54f9296fb5b11c4ea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dandelionText: {fileID: 0}
+  _commonOakText: {fileID: 0}
+  _catGrassText: {fileID: 0}
+  _wildRoseText: {fileID: 0}
+  wateringCanFillAmount: 50
+  seedTypes:
+  - {fileID: 11400000, guid: c8eb660ae7386134e9cf2ee4cd52239c, type: 2}
+  - {fileID: 11400000, guid: 133cdf25a5a06b041b1a39a6fe73f667, type: 2}
+  - {fileID: 11400000, guid: 2b5719403a1e6884eac2d18488e86b1b, type: 2}
+  - {fileID: 11400000, guid: b54373e4dfc236a4ca0efa4bce1ce4e2, type: 2}
 --- !u!1 &2267629331913645380
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,7 +141,7 @@ GameObject:
   - component: {fileID: 3446388835342668837}
   - component: {fileID: 1060751827022164612}
   - component: {fileID: 3105277498680089044}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
