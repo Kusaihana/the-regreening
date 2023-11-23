@@ -80,7 +80,10 @@ public class Farmer : MonoBehaviour
             switch (_selectedItemIndex)
             {
                 case 0:
-                    WaterTile();
+                    if (inventory.wateringCanFillAmount > 0)
+                    {
+                        WaterTile();
+                    }
                     break;
                 case 1:
                 {
@@ -189,6 +192,7 @@ public class Farmer : MonoBehaviour
             if (soilTile != null)
             {
                 soilTile.UpdateWater(10);
+                inventory.WaterTile(10);
             }
         }
     }

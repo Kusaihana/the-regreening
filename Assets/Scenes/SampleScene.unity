@@ -2534,6 +2534,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1311247650911219854, guid: 28481588ca8bf7d40b4a5e281216f15f, type: 3}
+      propertyPath: _waterText
+      value: 
+      objectReference: {fileID: 1503323189}
+    - target: {fileID: 1311247650911219854, guid: 28481588ca8bf7d40b4a5e281216f15f, type: 3}
       propertyPath: _catGrassText
       value: 
       objectReference: {fileID: 531885555}
@@ -2549,6 +2553,10 @@ PrefabInstance:
       propertyPath: _dandelionText
       value: 
       objectReference: {fileID: 1968168677}
+    - target: {fileID: 1311247650911219854, guid: 28481588ca8bf7d40b4a5e281216f15f, type: 3}
+      propertyPath: wateringCanFillAmount
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2047344369010755504, guid: 28481588ca8bf7d40b4a5e281216f15f, type: 3}
       propertyPath: m_Name
       value: Character

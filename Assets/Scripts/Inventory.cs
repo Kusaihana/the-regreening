@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    [SerializeField] private TMP_Text _waterText;
     [SerializeField] private TMP_Text _dandelionText;
     [SerializeField] private TMP_Text _commonOakText;
     [SerializeField] private TMP_Text _catGrassText;
     [SerializeField] private TMP_Text _wildRoseText;
     
     public Dictionary<string, int> seeds = new Dictionary<string, int>();
-    public int wateringCanFillAmount = 0;
+    public int wateringCanFillAmount = 100;
 
     public List<PlantType> seedTypes;
 
@@ -58,6 +59,11 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    private void UpdateWaterText()
+    {
+        _waterText.text = $"{wateringCanFillAmount}%";
+    }
+
     public bool PlantSeed(PlantType seed)
     {
         var seedName = seed.commonName;
@@ -75,13 +81,15 @@ public class Inventory : MonoBehaviour
     public void FillWateringCan(int amount)
     {
         wateringCanFillAmount += amount;
+        UpdateWaterText();
     }
 
-    public void WaterTile()
+    public void WaterTile(int amount)
     {
         if (wateringCanFillAmount > 0)
         {
-            wateringCanFillAmount--;
+            wateringCanFillAmount -= amount;
+            UpdateWaterText();
         }
         else
         {
