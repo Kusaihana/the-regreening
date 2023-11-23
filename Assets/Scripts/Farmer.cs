@@ -26,16 +26,7 @@ public class Farmer : MonoBehaviour
         var horizontalInput = Input.GetAxis("Horizontal");
         var verticalInput = Input.GetAxis("Vertical");
         
-        if (horizontalInput > 0)
-        {
-            transform.GetChild(0).rotation = new Quaternion(0,180,0,0);
-        }
-        else if (horizontalInput != 0)
-        {
-            transform.GetChild(0).rotation = new Quaternion(0,0,0,0);
-        }
-
-        var movement = new Vector3(horizontalInput, verticalInput, 0f).normalized;
+        var movement = new Vector3(horizontalInput, 0f, verticalInput).normalized;
 
         MovePlayer(movement);
         
@@ -46,6 +37,11 @@ public class Farmer : MonoBehaviour
     {
         var movementAmount = movement * moveSpeed * Time.deltaTime;
         transform.Translate(movementAmount, Space.World);
+        
+        if (movement != Vector3.zero)
+        {
+            transform.rotation = Quaternion.LookRotation(movement);
+        }
     }
     
     private void CheckForInteraction()
@@ -99,7 +95,7 @@ public class Farmer : MonoBehaviour
 
     void WaterTile()
     {
-        var ray = new Ray(transform.position, transform.forward);
+        var ray = new Ray(transform.position + new Vector3(0, 2, 0), -transform.up);
         RaycastHit hit;
         
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, tileLayer))
@@ -115,7 +111,7 @@ public class Farmer : MonoBehaviour
 
     void SeedPlant(PlantType seedType)
     {
-        var ray = new Ray(transform.position, transform.forward);
+        var ray = new Ray(transform.position + new Vector3(0, 2, 0), -transform.up);
         RaycastHit hit;
         
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, tileLayer))
@@ -137,7 +133,7 @@ public class Farmer : MonoBehaviour
 
     private void RemovePlant()
     {
-        var ray = new Ray(transform.position, transform.forward);
+        var ray = new Ray(transform.position + new Vector3(0, 2, 0), -transform.up);
         RaycastHit hit;
         
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, tileLayer))

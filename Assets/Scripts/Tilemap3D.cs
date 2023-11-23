@@ -3,7 +3,7 @@ using UnityEngine;
 public class Tilemap3D : MonoBehaviour
 {
     public GameObject tilePrefab;
-    public int gridSize = 10;
+    public int gridSize = 100;
 
     void Start()
     {
@@ -12,11 +12,11 @@ public class Tilemap3D : MonoBehaviour
 
     private void GenerateSoilMap()
     {
-        for (var x = 0; x < gridSize; x += 2)
+        for (var x = 0; x < gridSize; x += 5)
         {
-            for (var y = 0; y < gridSize; y += 2)
+            for (var z = 0; z < gridSize; z += 5)
             {
-                var tilePosition = new Vector3(x, y, 0);
+                var tilePosition = new Vector3(x, 0, z);
                 var soilTileObject = Instantiate(tilePrefab, tilePosition, Quaternion.identity);
                 var soilTile = soilTileObject.GetComponent<SoilTile>();
 
@@ -25,6 +25,7 @@ public class Tilemap3D : MonoBehaviour
                     //everything starts as dessert
                     soilTile.SetSoilProperties(LandType.Dessert);
                     soilTileObject.transform.parent = transform;
+                    soilTileObject.transform.localPosition = tilePosition;
                 }
             }
         }
