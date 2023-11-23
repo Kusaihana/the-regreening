@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class Farmer : MonoBehaviour
 {
     [SerializeField] private List<PlantType> _seedTypes;
+    [SerializeField] private List<Image> _items;
     
     public Inventory inventory;
     public float moveSpeed = 5f;
@@ -15,10 +17,12 @@ public class Farmer : MonoBehaviour
     public LayerMask plantLayer; 
 
     private const int MaxNumOfPlants = 4;
+    private int _selectedItemIndex;
 
     private void Awake()
     {
         inventory = GetComponent<Inventory>();
+        UpdateSelectedItem();
     }
 
     void Update()
@@ -46,51 +50,100 @@ public class Farmer : MonoBehaviour
     
     private void CheckForInteraction()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            WaterTile();
-        }
+            switch (_selectedItemIndex)
+            {
+                case 0:
+                    WaterTile();
+                    break;
+                case 1:
+                {
+                    // check if there are enough seeds in the inventory
+                    if (IsValidPlantingPosition() && inventory.PlantSeed(_seedTypes[0]))
+                    {
+                        SeedPlant(_seedTypes[0]);
+                    }
 
-        else if (Input.GetKeyDown(KeyCode.E))
+                    break;
+                }
+                case 2:
+                {
+                    // check if there are enough seeds in the inventory
+                    if (IsValidPlantingPosition() && inventory.PlantSeed(_seedTypes[1]))
+                    {
+                        SeedPlant(_seedTypes[1]);
+                    }
+
+                    break;
+                }
+                case 3:
+                {
+                    // check if there are enough seeds in the inventory
+                    if (IsValidPlantingPosition() && inventory.PlantSeed(_seedTypes[2]))
+                    {
+                        SeedPlant(_seedTypes[2]);
+                    }
+
+                    break;
+                }
+                case 4:
+                {
+                    // check if there are enough seeds in the inventory
+                    if (IsValidPlantingPosition() && inventory.PlantSeed(_seedTypes[3]))
+                    {
+                        SeedPlant(_seedTypes[3]);
+                    }
+
+                    break;
+                }
+                case 5:
+                    //TODO water berm
+                    break;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Q)) //TODO
         {
             RemovePlant();
         }
         
-        else if (Input.GetKeyDown(KeyCode.Alpha1))
+        float scrollWheel = Input.GetAxis("Mouse ScrollWheel");
+
+        if (scrollWheel > 0f)
         {
-            // check if there are enough seeds in the inventory
-            if (IsValidPlantingPosition() && inventory.PlantSeed(_seedTypes[0]))
-            {
-                SeedPlant(_seedTypes[0]);
-            }
+            // Scroll up
+            SelectNextItem();
         }
-        
-        else if (IsValidPlantingPosition() && Input.GetKeyDown(KeyCode.Alpha2))
+        else if (scrollWheel < 0f)
         {
-            // check if there are enough seeds in the inventory
-            if (inventory.PlantSeed(_seedTypes[1]))
-            {
-                SeedPlant(_seedTypes[1]);
-            }
+            // Scroll down
+            SelectPreviousItem();
         }
-        
-        else if (IsValidPlantingPosition() && Input.GetKeyDown(KeyCode.Alpha3))
+    }
+    
+    private void SelectNextItem()
+    {
+        _selectedItemIndex = (_selectedItemIndex + 1) % _items.Count;
+
+        UpdateSelectedItem();
+    }
+
+    private void SelectPreviousItem()
+    {
+        _selectedItemIndex = (_selectedItemIndex - 1 + 6) % _items.Count;
+
+        UpdateSelectedItem();
+    }
+
+    private void UpdateSelectedItem()
+    {
+        foreach (var item in _items)
         {
-            // check if there are enough seeds in the inventory
-            if (inventory.PlantSeed(_seedTypes[2]))
-            {
-                SeedPlant(_seedTypes[2]);
-            }
+            item.color = Color.white;
         }
-        
-        else if (IsValidPlantingPosition() && Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            // check if there are enough seeds in the inventory
-            if (inventory.PlantSeed(_seedTypes[3]))
-            {
-                SeedPlant(_seedTypes[3]);
-            }
-        }
+
+        // Enable the selected item
+        _items[_selectedItemIndex].color = Color.green;
     }
 
     void WaterTile()
