@@ -38,6 +38,7 @@ Material:
     - _AtlasWidth: 2
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
+    - _BendAmount: 0.005
     - _Float: 2
     - _Float_1: 2
     - _Growth: 2.5

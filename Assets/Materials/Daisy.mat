@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Dandelion
+  m_Name: Daisy
   m_Shader: {fileID: -6465566751694194690, guid: a90f0de5ab0ad2e4d905439144b9b186, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -33,13 +33,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Amount: -0.01
     - _AtlasHeight: 2
     - _AtlasTile: 0
     - _AtlasWidth: 2
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _BendAmount: 0.005
     - _Float: 2
     - _Float_1: 2
     - _Growth: 2.5

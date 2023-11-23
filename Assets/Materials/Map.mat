@@ -32,7 +32,7 @@ Material:
     - Vector1_: 0.005
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _BendAmount: 0.0028
+    - _BendAmount: 0.005
     m_Colors:
     - _Offset: {r: 0, g: 0, b: 0, a: 0}
     - _Tiling: {r: 2, g: 2, b: 0, a: 0}
