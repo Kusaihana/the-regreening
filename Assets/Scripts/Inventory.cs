@@ -42,19 +42,19 @@ public class Inventory : MonoBehaviour
     {
         if (seedName == "Dandelion")
         {
-            _dandelionText.text = $"Dandelion: {seeds[seedName]}";
+            _dandelionText.text = seeds[seedName].ToString();
         }
         else if (seedName == "Wild Rose")
         {
-            _wildRoseText.text = $"Wild Rose: {seeds[seedName]}";
+            _wildRoseText.text = seeds[seedName].ToString();
         }
         else if (seedName == "Common Oak")
         {
-            _commonOakText.text = $"Common Oak: {seeds[seedName]}";
+            _commonOakText.text = seeds[seedName].ToString();
         }
         else if (seedName == "Cat Grass")
         {
-            _catGrassText.text = $"Cat Grass: {seeds[seedName]}";
+            _catGrassText.text = seeds[seedName].ToString();
         }
     }
 
