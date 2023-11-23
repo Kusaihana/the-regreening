@@ -173,7 +173,8 @@ public class Farmer : MonoBehaviour
 
             if (soilTile != null && soilTile.plantsOnTile.Count < MaxNumOfPlants)
             {
-                var plantGo = Instantiate(seedType.plantPrefab, transform.position, Quaternion.identity);
+                var plantPos = transform.position + transform.forward * 1f;
+                var plantGo = Instantiate(seedType.plantPrefab, plantPos, Quaternion.identity);
                 var plant = plantGo.GetComponent<Plant>();
                 plant.SetTile(soilTile);
                 soilTile.plantsOnTile.Add(plant);
