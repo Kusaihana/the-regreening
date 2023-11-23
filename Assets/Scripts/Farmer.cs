@@ -50,6 +50,31 @@ public class Farmer : MonoBehaviour
     
     private void CheckForInteraction()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            OnItemClick(0);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            OnItemClick(1);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            OnItemClick(2);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            OnItemClick(3);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            OnItemClick(4);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            OnItemClick(5);
+        }
+        
         if (Input.GetKeyDown(KeyCode.E))
         {
             switch (_selectedItemIndex)
@@ -119,6 +144,12 @@ public class Farmer : MonoBehaviour
             // Scroll down
             SelectPreviousItem();
         }
+    }
+    
+    public void OnItemClick(int itemIndex)
+    {
+        _selectedItemIndex = itemIndex;
+        UpdateSelectedItem();
     }
     
     private void SelectNextItem()
