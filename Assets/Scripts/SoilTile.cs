@@ -29,6 +29,7 @@ public class SoilTile : MonoBehaviour
     private void Awake()
     {
         _tileColorSetter = FindObjectOfType<TileColorSetter>();
+        InvokeRepeating("RainRainRain", 60f,60f);
     }
 
     void Update()
@@ -38,6 +39,12 @@ public class SoilTile : MonoBehaviour
             float elapsedTime = Time.deltaTime;
             Evaporate(elapsedTime);
         }
+    }
+    
+    void RainRainRain()
+    {
+        //TODO Jason make it rain please :)
+        UpdateWater(100);
     }
     
     public void SetSoilProperties(LandType landType)
