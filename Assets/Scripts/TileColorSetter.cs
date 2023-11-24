@@ -1,8 +1,21 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class TileColorSetter : MonoBehaviour
 {
+    [SerializeField] private TMP_Text _rainLabel;
+
+    public void ShowRainLabel()
+    {
+        _rainLabel.gameObject.SetActive(true);
+        Invoke("HideRainLabel", 5f);
+    }
+    private void HideRainLabel()
+    {
+        _rainLabel.gameObject.SetActive(false);
+    }
+    
     public void UpdateTileColors()
     {
         var mesh = GetComponent<MeshFilter>().mesh;

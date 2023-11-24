@@ -17,6 +17,7 @@ public enum LandType
 public class SoilTile : MonoBehaviour
 {
     [SerializeField] private TMP_Text _tileLabel;
+
     public float waterPercentage;
     public float qualityLand;
     public float evaporationVariable;
@@ -45,8 +46,9 @@ public class SoilTile : MonoBehaviour
     {
         //TODO Jason make it rain please :)
         UpdateWater(100);
+        _tileColorSetter.ShowRainLabel();
     }
-    
+
     public void SetSoilProperties(LandType landType)
     {
         this.landType = landType;
