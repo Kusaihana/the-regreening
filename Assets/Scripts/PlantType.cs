@@ -42,7 +42,10 @@ public class PlantSpecs : ScriptableObject
 [System.Serializable]
 public class GrowthStageParameters
 {
-    public Range growthTimeRange; //in game days
+    public Range growthTimeRangeDesert; //in game days
+    public Range growthTimeRangeAlive; 
+    public Range growthTimeRangeVivid;
+    public Range growthTimeRangeLush;
     public float waterRequirement;
     public float evaporationEffect;
     public float waterUsage;

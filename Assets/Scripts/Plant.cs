@@ -24,7 +24,7 @@ public class Plant : MonoBehaviour
         currentStage = GrowthStage.Seed;
         _growthProgress = 0;
         _currentHealth = plantSpec.maxHealth;
-        SetRandomGrowthTime();
+        SetRandomGrowthTime(_tileAssigned.landType);
 
         _visual = _meshRenderer.material;
     }
@@ -111,7 +111,7 @@ public class Plant : MonoBehaviour
             currentStage = nextStage;
             _currentHealth = plantSpec.maxHealth;
             _growthProgress = 0;
-            SetRandomGrowthTime();
+            SetRandomGrowthTime(_tileAssigned.landType);
             
             UpdatePlantAppearance();
         }
@@ -141,10 +141,30 @@ public class Plant : MonoBehaviour
         }
     }
     
-    private void SetRandomGrowthTime()
+    private void SetRandomGrowthTime(LandType landType)
     {
         GrowthStageParameters stageParams = GetCurrentStageParameters();
-        _currentGrowthTime = Random.Range(stageParams.growthTimeRange.min, stageParams.growthTimeRange.max);
+
+        var growthTimeMin = stageParams.growthTimeRangeDesert.min;
+        var growthTimeMax = stageParams.growthTimeRangeDesert.max;
+        
+        if (landType == LandType.Alive)
+        {
+            growthTimeMin = stageParams.growthTimeRangeAlive.min;
+            growthTimeMax = stageParams.growthTimeRangeAlive.max;
+        }
+        else if (landType == LandType.Vivid)
+        {
+            growthTimeMin = stageParams.growthTimeRangeVivid.min;
+            growthTimeMax = stageParams.growthTimeRangeVivid.max;
+        }
+        else if (landType == LandType.Lush)
+        {
+            growthTimeMin = stageParams.growthTimeRangeLush.min;
+            growthTimeMax = stageParams.growthTimeRangeLush.max;
+        }
+
+        _currentGrowthTime = Random.Range(growthTimeMin, growthTimeMax);
     }
     
     private void UpdatePlantAppearance()

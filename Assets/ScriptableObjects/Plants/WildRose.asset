@@ -29,30 +29,66 @@ MonoBehaviour:
   maxHealth: 100
   plantPrefab: {fileID: 8829967018354640548, guid: 8bba25c86a1c58543b4eb7d06b8dad0c, type: 3}
   seedStage:
-    growthTimeRange:
-      min: 1
-      max: 2
+    growthTimeRangeDesert:
+      min: 0
+      max: 0
+    growthTimeRangeAlive:
+      min: 0.4
+      max: 0.5
+    growthTimeRangeVivid:
+      min: 0.3
+      max: 0.4
+    growthTimeRangeLush:
+      min: 0.4
+      max: 0.5
     waterRequirement: 30
     evaporationEffect: 10
     waterUsage: 10
   seedlingStage:
-    growthTimeRange:
-      min: 2
-      max: 3
+    growthTimeRangeDesert:
+      min: 0
+      max: 0
+    growthTimeRangeAlive:
+      min: 0.5
+      max: 0.6
+    growthTimeRangeVivid:
+      min: 0.4
+      max: 0.5
+    growthTimeRangeLush:
+      min: 0.5
+      max: 0.6
     waterRequirement: 20
     evaporationEffect: 20
     waterUsage: 16
   saplingStage:
-    growthTimeRange:
-      min: 4
-      max: 5
+    growthTimeRangeDesert:
+      min: 0
+      max: 0
+    growthTimeRangeAlive:
+      min: 0.6
+      max: 0.7
+    growthTimeRangeVivid:
+      min: 0.5
+      max: 0.6
+    growthTimeRangeLush:
+      min: 0.6
+      max: 0.7
     waterRequirement: 10
     evaporationEffect: 30
     waterUsage: 80
   adultStage:
-    growthTimeRange:
+    growthTimeRangeDesert:
+      min: 0
+      max: 0
+    growthTimeRangeAlive:
       min: 5
-      max: 6
+      max: 5
+    growthTimeRangeVivid:
+      min: 5
+      max: 5
+    growthTimeRangeLush:
+      min: 5
+      max: 5
     waterRequirement: 20
     evaporationEffect: 40
     waterUsage: 150

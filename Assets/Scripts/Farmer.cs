@@ -17,7 +17,7 @@ public class Farmer : MonoBehaviour
     public LayerMask plantLayer; 
     public LayerMask waterLayer; 
 
-    private const int MaxNumOfPlants = 4;
+    private const int MaxNumOfPlants = 5;
     private int _selectedItemIndex;
 
     private void Awake()
