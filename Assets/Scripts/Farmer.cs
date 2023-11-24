@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 
 public class Farmer : MonoBehaviour
 {
-    [SerializeField] private List<PlantType> _seedTypes;
+    [SerializeField] private List<PlantSpecs> _seedTypes;
     [SerializeField] private List<Image> _items;
     
     public Inventory inventory;
@@ -204,7 +204,7 @@ public class Farmer : MonoBehaviour
         }
     }
 
-    void SeedPlant(PlantType seedType)
+    void SeedPlant(PlantSpecs seedType)
     {
         var ray = new Ray(transform.position + new Vector3(0, 2, 0), -transform.up);
         RaycastHit hit;
@@ -247,7 +247,7 @@ public class Farmer : MonoBehaviour
                     
                     // removing plant drops some seeds
                     var numOfSeeds = Random.Range(0, 5);
-                    inventory.AddSeed(plantToRemove.plantType, numOfSeeds);
+                    inventory.AddSeed(plantToRemove.plantSpec, numOfSeeds);
                 }
             }
         }

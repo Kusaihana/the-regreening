@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 
 public class Plant : MonoBehaviour
 {
-    public PlantType plantType;
+    public PlantSpecs plantSpec;
     
     [SerializeField] private GrowthStage _currentStage;
     [SerializeField] private MeshRenderer _meshRenderer;
@@ -23,7 +23,7 @@ public class Plant : MonoBehaviour
     {
         _currentStage = GrowthStage.Seed;
         _growthProgress = 0;
-        _currentHealth = plantType.maxHealth;
+        _currentHealth = plantSpec.maxHealth;
         SetRandomGrowthTime();
 
         _visual = _meshRenderer.material;
@@ -68,7 +68,7 @@ public class Plant : MonoBehaviour
                 if (_currentHealth > 0)
                 {
                     _currentHealth -= (stageParams.waterRequirement - waterAvailable) * elapsedTime;
-                    _currentHealth = Mathf.Clamp(_currentHealth, 0, plantType.maxHealth);
+                    _currentHealth = Mathf.Clamp(_currentHealth, 0, plantSpec.maxHealth);
                 }
 
                 return;
@@ -90,13 +90,13 @@ public class Plant : MonoBehaviour
         switch (_currentStage)
         {
             case GrowthStage.Seed:
-                return plantType.seedStage;
+                return plantSpec.seedStage;
             case GrowthStage.Seedling:
-                return plantType.seedlingStage;
+                return plantSpec.seedlingStage;
             case GrowthStage.Sapling:
-                return plantType.saplingStage;
+                return plantSpec.saplingStage;
             case GrowthStage.Adult:
-                return plantType.adultStage;
+                return plantSpec.adultStage;
             default:
                 return new GrowthStageParameters();
         }
@@ -109,7 +109,7 @@ public class Plant : MonoBehaviour
         if (nextStage != GrowthStage.Dead)
         {
             _currentStage = nextStage;
-            _currentHealth = plantType.maxHealth;
+            _currentHealth = plantSpec.maxHealth;
             _growthProgress = 0;
             SetRandomGrowthTime();
             

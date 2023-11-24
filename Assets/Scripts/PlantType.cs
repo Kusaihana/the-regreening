@@ -13,9 +13,17 @@ public enum GrowthStage
     Dead
 }
 
-[CreateAssetMenu(menuName = "Plant Type")]
-public class PlantType : ScriptableObject
+public enum PlantType
 {
+    Grass,
+    Bush,
+    Tree
+}
+
+[CreateAssetMenu(menuName = "Plant Type")]
+public class PlantSpecs : ScriptableObject
+{
+    public PlantType plantType;
     public string commonName;
     public string latinName;
     public string description;

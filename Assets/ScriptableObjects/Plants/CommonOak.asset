@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15d0b708f8a5aec4791587a75f4547d4, type: 3}
   m_Name: CommonOak
   m_EditorClassIdentifier: 
+  plantType: 2
   commonName: Common Oak
   latinName: Quercus robur
   description: Quercus robur is a species of flowering plant in the beech and oak

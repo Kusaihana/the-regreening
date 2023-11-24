@@ -12,8 +12,9 @@ public class Inventory : MonoBehaviour
     
     public Dictionary<string, int> seeds = new Dictionary<string, int>();
     public int wateringCanFillAmount = 100;
+    public int pebbleAmount;
 
-    public List<PlantType> seedTypes;
+    public List<PlantSpecs> seedTypes;
 
     void Start()
     {
@@ -23,7 +24,7 @@ public class Inventory : MonoBehaviour
         }
     }
     
-    public void AddSeed(PlantType seed, int quantity)
+    public void AddSeed(PlantSpecs seed, int quantity)
     {
         var seedName = seed.commonName;
         
@@ -64,7 +65,7 @@ public class Inventory : MonoBehaviour
         _waterText.text = $"{wateringCanFillAmount}%";
     }
 
-    public bool PlantSeed(PlantType seed)
+    public bool PlantSeed(PlantSpecs seed)
     {
         var seedName = seed.commonName;
         

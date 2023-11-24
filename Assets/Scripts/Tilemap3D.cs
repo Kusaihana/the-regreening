@@ -4,9 +4,12 @@ public class Tilemap3D : MonoBehaviour
 {
     public GameObject tilePrefab;
     public int gridSize = 100;
+    
+    private TileColorSetter _tileColorSetter;
 
-    void Start()
+    private void Awake()
     {
+        _tileColorSetter = FindObjectOfType<TileColorSetter>();
         GenerateSoilMap();
     }
 
@@ -23,11 +26,12 @@ public class Tilemap3D : MonoBehaviour
                 if (soilTile != null)
                 {
                     //everything starts as dessert
-                    soilTile.SetSoilProperties(LandType.Dessert);
+                    soilTile.SetSoilProperties(LandType.Desert);
                     soilTileObject.transform.parent = transform;
                     soilTileObject.transform.localPosition = tilePosition;
                 }
             }
         }
+        _tileColorSetter.UpdateTileColors();
     }
 }
