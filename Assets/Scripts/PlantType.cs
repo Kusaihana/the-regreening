@@ -16,6 +16,7 @@ public enum GrowthStage
 public enum PlantType
 {
     Grass,
+    Dandelion,
     Bush,
     Tree
 }

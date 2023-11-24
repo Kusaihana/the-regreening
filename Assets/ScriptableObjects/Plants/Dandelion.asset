@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15d0b708f8a5aec4791587a75f4547d4, type: 3}
   m_Name: Dandelion
   m_EditorClassIdentifier: 
+  plantType: 1
   commonName: Dandelion
   latinName: Taraxacum officinale
   description: Taraxacum officinale is a herbaceous perennial flowering plant in

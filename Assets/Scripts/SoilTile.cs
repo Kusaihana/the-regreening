@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum LandType
@@ -64,6 +65,7 @@ public class SoilTile : MonoBehaviour
         waterPercentage = Math.Clamp(waterPercentage, 0, 1000);
         _tileLabel.color = GetColorByTileType();
         _tileLabel.text = ((int)waterPercentage).ToString();
+        CheckUpgrade();
     }
     
     private Color GetColorByTileType()
@@ -80,26 +82,45 @@ public class SoilTile : MonoBehaviour
     private void Evaporate(float elapsedTime)
     {
         UpdateWater(-elapsedTime / evaporationVariable);
-        CheckUpgrade();
     }
     
     private void CheckUpgrade()
     {
-        if (landType == LandType.Desert && CountPlantsOfType(PlantType.Grass) > 0 && waterPercentage >= 100)
+        if (landType == LandType.Desert)
         {
-            UpgradeTile(LandType.Alive);
+            if (CountPlantsOfType(PlantType.Grass) >= 3 && waterPercentage >= 150)
+            {
+                SetTileType(LandType.Alive);
+            }
         }
-        else if (landType == LandType.Alive && CountPlantsOfType(PlantType.Grass) > 1 && CountPlantsOfType(PlantType.Bush) > 0 && waterPercentage >= 300)
+        else if (landType == LandType.Alive)
         {
-            UpgradeTile(LandType.Vivid);
+            if (CountPlantsOfType(PlantType.Grass) >= 1 &&
+                CountPlantsOfType(PlantType.Dandelion) >= 1 && CountPlantsOfType(PlantType.Bush) >= 2 &&
+                waterPercentage >= 300)
+            {
+                SetTileType(LandType.Vivid);
+            }
+            else if (CountPlantsOfType(PlantType.Grass) < 3 && waterPercentage < 150)
+            {
+                SetTileType(LandType.Desert);
+            }
         }
-        else if (landType == LandType.Vivid && CountPlantsOfType(PlantType.Grass) > 0 && CountPlantsOfType(PlantType.Bush) > 0 && CountPlantsOfType(PlantType.Tree) > 1 && waterPercentage >= 500)
+        else if (landType == LandType.Vivid)
         {
-            UpgradeTile(LandType.Lush);
+            if (CountPlantsOfType(PlantType.Bush) >= 1 &&
+                CountPlantsOfType(PlantType.Tree) >= 3 && waterPercentage >= 500)
+            {
+                SetTileType(LandType.Lush);
+            }
+            else if (CountPlantsOfType(PlantType.Bush) < 2 && waterPercentage < 300)
+            {
+                SetTileType(LandType.Alive);
+            }
         }
     }
     
-    private void UpgradeTile(LandType newType)
+    private void SetTileType(LandType newType)
     {
         landType = newType;
         _tileColorSetter.UpdateTileColors();
@@ -107,6 +128,6 @@ public class SoilTile : MonoBehaviour
     
     private int CountPlantsOfType(PlantType plantType)
     {
-        return plantsOnTile.FindAll(plant => plant.plantSpec.plantType == plantType).Count;
+        return plantsOnTile.FindAll(plant => plant.plantSpec.plantType == plantType && plant.currentStage == GrowthStage.Adult).Count;
     }
 }

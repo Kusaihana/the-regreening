@@ -236,7 +236,7 @@ public class Farmer : MonoBehaviour
         {
             SoilTile soilTile = hit.transform.GetComponent<SoilTile>();
 
-            if (soilTile != null && soilTile.plantsOnTile.Count < MaxNumOfPlants)
+            if (soilTile != null)
             {
                 var plantToRemove = soilTile.plantsOnTile.FirstOrDefault();
 

@@ -10,7 +10,7 @@ public class Plant : MonoBehaviour
 {
     public PlantSpecs plantSpec;
     
-    [SerializeField] private GrowthStage _currentStage;
+    public GrowthStage currentStage;
     [SerializeField] private MeshRenderer _meshRenderer;
 
     private float _growthProgress;
@@ -21,7 +21,7 @@ public class Plant : MonoBehaviour
     
     void Start()
     {
-        _currentStage = GrowthStage.Seed;
+        currentStage = GrowthStage.Seed;
         _growthProgress = 0;
         _currentHealth = plantSpec.maxHealth;
         SetRandomGrowthTime();
@@ -31,7 +31,7 @@ public class Plant : MonoBehaviour
     
     void Update()
     {
-        if (_currentStage != GrowthStage.Dead)
+        if (currentStage != GrowthStage.Dead)
         {
             float elapsedTime = Time.deltaTime / 60f;
             UpdatePlantGrowth(elapsedTime);
@@ -48,7 +48,7 @@ public class Plant : MonoBehaviour
     {
         GrowthStageParameters stageParams = GetCurrentStageParameters();
 
-        if (_tileAssigned != null && _tileAssigned.waterPercentage > 0 && _currentStage != GrowthStage.Dead)
+        if (_tileAssigned != null && _tileAssigned.waterPercentage > 0 && currentStage != GrowthStage.Dead)
         {
             _tileAssigned.UpdateWater(-elapsedTime * stageParams.waterUsage);
         }
@@ -87,7 +87,7 @@ public class Plant : MonoBehaviour
     
     public GrowthStageParameters GetCurrentStageParameters()
     {
-        switch (_currentStage)
+        switch (currentStage)
         {
             case GrowthStage.Seed:
                 return plantSpec.seedStage;
@@ -104,11 +104,11 @@ public class Plant : MonoBehaviour
     
     private void TransitionToNextStage()
     {
-        GrowthStage nextStage = GetNextGrowthStage(_currentStage);
+        GrowthStage nextStage = GetNextGrowthStage(currentStage);
 
         if (nextStage != GrowthStage.Dead)
         {
-            _currentStage = nextStage;
+            currentStage = nextStage;
             _currentHealth = plantSpec.maxHealth;
             _growthProgress = 0;
             SetRandomGrowthTime();
@@ -117,7 +117,7 @@ public class Plant : MonoBehaviour
         }
         else
         {
-            _currentStage = GrowthStage.Dead;
+            currentStage = GrowthStage.Dead;
             
             UpdatePlantAppearance();
             HandlePlantDeath();
@@ -149,7 +149,7 @@ public class Plant : MonoBehaviour
     
     private void UpdatePlantAppearance()
     {
-        _visual.SetInt("_AtlasTile", (int)_currentStage);
+        _visual.SetInt("_AtlasTile", (int)currentStage);
     }
 
     private void HandlePlantDeath()
