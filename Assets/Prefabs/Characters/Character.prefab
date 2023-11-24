@@ -115,6 +115,9 @@ MonoBehaviour:
   plantLayer:
     serializedVersion: 2
     m_Bits: 128
+  waterLayer:
+    serializedVersion: 2
+    m_Bits: 16
 --- !u!114 &1311247650911219854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,11 +130,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 690d62f76c410f54f9296fb5b11c4ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _waterText: {fileID: 0}
   _dandelionText: {fileID: 0}
   _commonOakText: {fileID: 0}
   _catGrassText: {fileID: 0}
   _wildRoseText: {fileID: 0}
-  wateringCanFillAmount: 50
+  wateringCanFillAmount: 100
   seedTypes:
   - {fileID: 11400000, guid: 133cdf25a5a06b041b1a39a6fe73f667, type: 2}
   - {fileID: 11400000, guid: c8eb660ae7386134e9cf2ee4cd52239c, type: 2}

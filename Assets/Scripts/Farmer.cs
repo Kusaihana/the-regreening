@@ -15,6 +15,7 @@ public class Farmer : MonoBehaviour
     public float moveSpeed = 5f;
     public LayerMask tileLayer;
     public LayerMask plantLayer; 
+    public LayerMask waterLayer; 
 
     private const int MaxNumOfPlants = 4;
     private int _selectedItemIndex;
@@ -80,10 +81,7 @@ public class Farmer : MonoBehaviour
             switch (_selectedItemIndex)
             {
                 case 0:
-                    if (inventory.wateringCanFillAmount > 0)
-                    {
-                        WaterTile();
-                    }
+                    WaterTile();
                     break;
                 case 1:
                 {
@@ -185,15 +183,24 @@ public class Farmer : MonoBehaviour
         var ray = new Ray(transform.position + new Vector3(0, 2, 0), -transform.up);
         RaycastHit hit;
         
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, tileLayer))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, waterLayer))
         {
-            SoilTile soilTile = hit.transform.GetComponent<SoilTile>();
-
-            if (soilTile != null)
+            inventory.FillWateringCan();
+            return;
+        }
+        
+        if (inventory.wateringCanFillAmount > 0)
+        {
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, tileLayer))
             {
-                soilTile.UpdateWater(10);
-                inventory.WaterTile(10);
-            }
+                SoilTile soilTile = hit.transform.GetComponent<SoilTile>();
+
+                if (soilTile != null)
+                {
+                    soilTile.UpdateWater(10);
+                    inventory.WaterTile(10);
+                }
+            }        
         }
     }
 

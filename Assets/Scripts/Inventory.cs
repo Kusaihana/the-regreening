@@ -78,9 +78,9 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
-    public void FillWateringCan(int amount)
+    public void FillWateringCan()
     {
-        wateringCanFillAmount += amount;
+        wateringCanFillAmount = 100;
         UpdateWaterText();
     }
 
