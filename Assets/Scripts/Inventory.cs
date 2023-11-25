@@ -53,7 +53,7 @@ public class Inventory : MonoBehaviour
         UpdateSeedText(seedName);
     }
 
-    private void UpdateSeedText(string seedName)
+    public void UpdateSeedText(string seedName)
     {
         if (seedName == "Dandelion")
         {
@@ -84,8 +84,6 @@ public class Inventory : MonoBehaviour
         
         if (seeds.ContainsKey(seedName) && seeds[seedName] > 0)
         {
-            seeds[seedName]--;
-            UpdateSeedText(seed.commonName);
             return true;
         }
 

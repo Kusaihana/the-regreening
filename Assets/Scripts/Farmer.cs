@@ -244,19 +244,35 @@ public class Farmer : MonoBehaviour
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, tileLayer))
         {
             SoilTile soilTile = hit.transform.GetComponent<SoilTile>();
+            var plantPos = transform.position + transform.forward * 1f;
 
-            if (soilTile != null && soilTile.plantsOnTile.Count < MaxNumOfPlants)
+            if (!IsPlantAtPosition(plantPos))
             {
-                var plantPos = transform.position + transform.forward * 1f;
-                var plantGo = Instantiate(seedType.plantPrefab, plantPos, Quaternion.identity);
-                var plant = plantGo.GetComponent<Plant>();
-                plant.SetTile(soilTile);
-                soilTile.plantsOnTile.Add(plant);
+                if (soilTile != null && soilTile.plantsOnTile.Count < MaxNumOfPlants)
+                {
+                    var plantGo = Instantiate(seedType.plantPrefab, plantPos, Quaternion.identity);
+                    var plant = plantGo.GetComponent<Plant>();
+                    plant.SetTile(soilTile);
+                    soilTile.plantsOnTile.Add(plant);
 
-                var evaCoef = plant.GetCurrentStageParameters().evaporationEffect;
-                soilTile.UpdateEvaporationCoefficient(evaCoef);
+                    var evaCoef = plant.GetCurrentStageParameters().evaporationEffect;
+                    soilTile.UpdateEvaporationCoefficient(evaCoef);
+                    
+                    inventory.seeds[seedType.commonName]--;
+                    inventory.UpdateSeedText(seedType.commonName);
+                }
+            }
+            else
+            {
+                Debug.Log("Cannot plant on top of an existing plant!");
             }
         }
+    }
+    
+    private bool IsPlantAtPosition(Vector3 position)
+    {
+        Collider[] colliders = Physics.OverlapSphere(position, 0.5f, plantLayer);
+        return colliders.Length > 0;
     }
 
     private void RemovePlant()
