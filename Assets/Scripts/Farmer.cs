@@ -11,6 +11,7 @@ public class Farmer : MonoBehaviour
     [SerializeField] private List<PlantSpecs> _seedTypes;
     [SerializeField] private List<Image> _items;
     [SerializeField] private GameObject _bermPrefab;
+    [SerializeField] private GameObject _scaleCursor;
     
     public Inventory inventory;
     public float moveSpeed = 5f;
@@ -21,6 +22,7 @@ public class Farmer : MonoBehaviour
 
     private const int MaxNumOfPlants = 5;
     private int _selectedItemIndex;
+    private LandType _currentLandType = LandType.Desert;
 
     private void Awake()
     {
@@ -38,6 +40,34 @@ public class Farmer : MonoBehaviour
         MovePlayer(movement);
         
         CheckForInteraction();
+        
+        var ray = new Ray(transform.position + new Vector3(0, 2, 0), -transform.up);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, tileLayer))
+        {
+            SoilTile soilTile = hit.transform.GetComponent<SoilTile>();
+
+            if (soilTile != null)
+            {
+                var newLandType = soilTile.landType;
+
+                if (_currentLandType != newLandType)
+                {
+                    var newRotation = newLandType switch
+                    {
+                        LandType.Alive => -45f,
+                        LandType.Vivid => -90f,
+                        LandType.Lush => -135f,
+                        _ => 0f
+                    };
+
+                    _currentLandType = newLandType;
+                    
+                    StartCoroutine(RotateCursorOverTime(newRotation));
+                }
+            }
+        }
     }
 
     private void MovePlayer(Vector3 movement)
@@ -380,5 +410,27 @@ public class Farmer : MonoBehaviour
         RaycastHit[] hits = Physics.RaycastAll(ray, Mathf.Infinity, plantLayer);
         
         return hits.Length == 0;
+    }
+    
+    private IEnumerator RotateCursorOverTime(float newRotation)
+    {
+        var elapsedTime = 0f;
+
+        var startAngle = _scaleCursor.transform.rotation.z;
+
+        while (elapsedTime < 0.5f)
+        {
+            elapsedTime += Time.deltaTime;
+            
+            float t = Mathf.Clamp01(elapsedTime / 0.5f);
+            
+            Quaternion startRotation = Quaternion.Euler(0f, 0f, startAngle);
+            Quaternion endRotation = Quaternion.Euler(0f, 0f, newRotation);
+            Quaternion interpolatedRotation = Quaternion.Lerp(startRotation, endRotation, t);
+            
+            _scaleCursor.transform.rotation = interpolatedRotation;
+
+            yield return null;
+        }
     }
 }
