@@ -16,6 +16,7 @@ public class Farmer : MonoBehaviour
     public LayerMask tileLayer;
     public LayerMask plantLayer; 
     public LayerMask waterLayer; 
+    public LayerMask pebbleLayer; 
 
     private const int MaxNumOfPlants = 5;
     private int _selectedItemIndex;
@@ -51,6 +52,11 @@ public class Farmer : MonoBehaviour
     
     private void CheckForInteraction()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            PickUpPebble();
+        }
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             OnItemClick(0);
@@ -124,7 +130,10 @@ public class Farmer : MonoBehaviour
                     break;
                 }
                 case 5:
-                    //TODO water berm
+                    if (inventory.pebbleAmount >= 10)
+                    {
+                        //TODO PlaceWaterBerm();
+                    }
                     break;
             }
         }
@@ -238,19 +247,93 @@ public class Farmer : MonoBehaviour
 
             if (soilTile != null)
             {
-                var plantToRemove = soilTile.plantsOnTile.FirstOrDefault();
+                var closestPlant = FindClosestPlant(soilTile);
 
-                if (plantToRemove != null)
+                if (closestPlant != null)
                 {
-                    soilTile.plantsOnTile.Remove(plantToRemove);
-                    Destroy(plantToRemove.gameObject);
+                    soilTile.plantsOnTile.Remove(closestPlant);
+                    Destroy(closestPlant.gameObject);
                     
-                    // removing plant drops some seeds
                     var numOfSeeds = Random.Range(0, 5);
-                    inventory.AddSeed(plantToRemove.plantSpec, numOfSeeds);
+                    inventory.AddSeed(closestPlant.plantSpec, numOfSeeds);
                 }
             }
         }
+    }
+    
+    private void PickUpPebble()
+    {
+        RaycastHit[] hits = Physics.SphereCastAll(transform.position, 2f, transform.forward, Mathf.Infinity, pebbleLayer);
+        
+        Pebble closestPebble = FindClosestPebble(hits);
+
+        if(closestPebble != null)
+        {
+            Destroy(closestPebble.gameObject);
+            inventory.AddPebble();
+        }
+    }
+    
+    private Pebble FindClosestPebble(RaycastHit[] hits)
+    {
+        Pebble closestRock = null;
+        float closestDistance = Mathf.Infinity;
+
+        foreach (var hit in hits)
+        {
+            Pebble rock = hit.transform.GetComponent<Pebble>();
+
+            if (rock != null)
+            {
+                float distance = Vector3.Distance(transform.position, rock.transform.position);
+
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestRock = rock;
+                }
+            }
+        }
+
+        return closestRock;
+    }
+
+    private Plant FindClosestPlant(SoilTile soilTile)
+    {
+        Plant closestPlant = null;
+        float closestDistance = float.MaxValue;
+
+        foreach (var plant in soilTile.plantsOnTile)
+        {
+            float distance = Vector3.Distance(transform.position, plant.transform.position);
+
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestPlant = plant;
+            }
+        }
+
+        return closestPlant;
+    }
+    
+    private Plant FindClosestPebble(SoilTile soilTile)
+    {
+        Plant closestPlant = null;
+        float closestDistance = float.MaxValue;
+
+        foreach (var plant in soilTile.plantsOnTile)
+        {
+            float distance = Vector3.Distance(transform.position, plant.transform.position);
+
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestPlant = plant;
+            }
+        }
+
+        return closestPlant;
     }
     
     private bool IsValidPlantingPosition()

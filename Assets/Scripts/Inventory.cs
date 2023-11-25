@@ -9,6 +9,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private TMP_Text _commonOakText;
     [SerializeField] private TMP_Text _catGrassText;
     [SerializeField] private TMP_Text _wildRoseText;
+    [SerializeField] private TMP_Text _pebbleText;
     
     public Dictionary<string, int> seeds = new Dictionary<string, int>();
     public int wateringCanFillAmount = 100;
@@ -22,6 +23,12 @@ public class Inventory : MonoBehaviour
         {
             AddSeed(seedType, 5);
         }
+    }
+
+    public void AddPebble()
+    {
+        pebbleAmount++;
+        _pebbleText.text = pebbleAmount.ToString();
     }
     
     public void AddSeed(PlantSpecs seed, int quantity)
