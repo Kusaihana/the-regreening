@@ -2746,6 +2746,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7127045764111263525, guid: 28481588ca8bf7d40b4a5e281216f15f, type: 3}
+      propertyPath: _bermPrefab
+      value: 
+      objectReference: {fileID: 3725404005726313889, guid: 61ec54323fe1053408d974906af13aa2, type: 3}
+    - target: {fileID: 7127045764111263525, guid: 28481588ca8bf7d40b4a5e281216f15f, type: 3}
       propertyPath: pebbleLayer.m_Bits
       value: 512
       objectReference: {fileID: 0}

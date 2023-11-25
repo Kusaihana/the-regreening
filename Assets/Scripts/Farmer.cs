@@ -10,6 +10,7 @@ public class Farmer : MonoBehaviour
 {
     [SerializeField] private List<PlantSpecs> _seedTypes;
     [SerializeField] private List<Image> _items;
+    [SerializeField] private GameObject _bermPrefab;
     
     public Inventory inventory;
     public float moveSpeed = 5f;
@@ -132,7 +133,7 @@ public class Farmer : MonoBehaviour
                 case 5:
                     if (inventory.pebbleAmount >= 10)
                     {
-                        //TODO PlaceWaterBerm();
+                        PlaceWaterBerm();
                     }
                     break;
             }
@@ -160,6 +161,28 @@ public class Farmer : MonoBehaviour
     {
         _selectedItemIndex = itemIndex;
         UpdateSelectedItem();
+    }
+
+    private void PlaceWaterBerm()
+    {
+        var ray = new Ray(transform.position + new Vector3(0, 2, 0), -transform.up);
+        RaycastHit hit;
+        
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, tileLayer))
+        {
+            SoilTile soilTile = hit.transform.GetComponent<SoilTile>();
+
+            if (soilTile != null)
+            {
+                var bermPos = transform.position + transform.forward * 1f;
+                Instantiate(_bermPrefab, bermPos, Quaternion.identity);
+
+                inventory.UsePebble();
+
+                //TODO change evaporation of the tile
+                //soilTile.UpdateEvaporationCoefficient(evaCoef);
+            }
+        }
     }
     
     private void SelectNextItem()
@@ -263,7 +286,7 @@ public class Farmer : MonoBehaviour
     
     private void PickUpPebble()
     {
-        RaycastHit[] hits = Physics.SphereCastAll(transform.position, 2f, transform.forward, Mathf.Infinity, pebbleLayer);
+        RaycastHit[] hits = Physics.SphereCastAll(transform.position, 1f, transform.forward, Mathf.Infinity, pebbleLayer);
         
         Pebble closestPebble = FindClosestPebble(hits);
 

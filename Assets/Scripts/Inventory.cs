@@ -31,6 +31,12 @@ public class Inventory : MonoBehaviour
         _pebbleText.text = pebbleAmount.ToString();
     }
     
+    public void UsePebble()
+    {
+        pebbleAmount -= 10;
+        _pebbleText.text = pebbleAmount.ToString();
+    }
+    
     public void AddSeed(PlantSpecs seed, int quantity)
     {
         var seedName = seed.commonName;
