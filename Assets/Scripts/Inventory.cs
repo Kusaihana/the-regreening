@@ -28,13 +28,13 @@ public class Inventory : MonoBehaviour
     public void AddPebble()
     {
         pebbleAmount++;
-        _pebbleText.text = pebbleAmount.ToString();
+        _pebbleText.text = $"{pebbleAmount}/10";
     }
     
     public void UsePebble()
     {
         pebbleAmount -= 10;
-        _pebbleText.text = pebbleAmount.ToString();
+        _pebbleText.text = $"{pebbleAmount}/10";
     }
     
     public void AddSeed(PlantSpecs seed, int quantity)
