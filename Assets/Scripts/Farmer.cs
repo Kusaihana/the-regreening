@@ -57,6 +57,10 @@ public class Farmer : MonoBehaviour
         {
             PickUpPebble();
         }
+        else if (Input.GetMouseButtonDown(1))
+        {
+            RemovePlant();
+        }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -138,10 +142,7 @@ public class Farmer : MonoBehaviour
                     break;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Q)) //TODO
-        {
-            RemovePlant();
-        }
+
         
         float scrollWheel = Input.GetAxis("Mouse ScrollWheel");
 
