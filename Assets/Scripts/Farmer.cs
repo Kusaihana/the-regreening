@@ -178,9 +178,7 @@ public class Farmer : MonoBehaviour
                 Instantiate(_bermPrefab, bermPos, Quaternion.identity);
 
                 inventory.UsePebble();
-
-                //TODO change evaporation of the tile
-                //soilTile.UpdateEvaporationCoefficient(evaCoef);
+                soilTile.AddBerm();
             }
         }
     }

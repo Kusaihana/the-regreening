@@ -23,6 +23,7 @@ public class SoilTile : MonoBehaviour
     public float evaporationVariable;
     public LandType landType;
     public List<Plant> plantsOnTile = new List<Plant>();
+    public int bermCount;
 
     private TileColorSetter _tileColorSetter;
     private int _seedAmount;
@@ -76,6 +77,11 @@ public class SoilTile : MonoBehaviour
         _tileLabel.text = ((int)waterPercentage).ToString();
         CheckUpgrade();
     }
+
+    public void AddBerm()
+    {
+        bermCount++;
+    }
     
     private Color GetColorByTileType()
     {
@@ -91,6 +97,11 @@ public class SoilTile : MonoBehaviour
     private void Evaporate(float elapsedTime)
     {
         UpdateWater(-elapsedTime / evaporationVariable);
+
+        for (var i = 0; i < bermCount; i++)
+        {
+            UpdateWater(elapsedTime * 25/60f); // water berm adds 25 water to the tile per minute (in game day)
+        }
     }
     
     private void CheckUpgrade()
