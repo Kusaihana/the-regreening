@@ -126,7 +126,7 @@ MonoBehaviour:
   minX: -30
   maxX: 30
   minZ: -16
-  maxZ: 55
+  maxZ: 40
 --- !u!114 &1311247650911219854
 MonoBehaviour:
   m_ObjectHideFlags: 0
