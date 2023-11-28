@@ -41,6 +41,8 @@ Material:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
     - _BendAmount: 0.005
+    - _Fog: 3.08
+    - _FogIntensity: 1
     - _HeightGrassIntensity: 2.3
     - _Rain: 0
     - _RainAmount: 1
@@ -51,6 +53,7 @@ Material:
     - _B: {r: 0.4367554, g: 1, b: 0, a: 0}
     - _C: {r: 1, g: 0.05406789, b: 0, a: 0}
     - _D: {r: 0, g: 0, b: 0, a: 0}
+    - _FogColor: {r: 0, g: 0.5566038, b: 0.51811534, a: 0}
     - _Offset: {r: 0, g: 0, b: 0, a: 0}
     - _RainColor: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 1}
     - _RainTiling: {r: 50, g: 50, b: 0, a: 0}
