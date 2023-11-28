@@ -48,9 +48,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tileLabel: {fileID: 4509612022699763320}
   waterPercentage: 0
+  qualityLand: 0
   evaporationVariable: 0
   landType: 0
   plantsOnTile: []
+  bermCount: 0
 --- !u!65 &4975090899609176343
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -70,7 +72,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5, y: 1, z: 5}
+  m_Size: {x: 10, y: 1, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7402396405344198430
 GameObject:

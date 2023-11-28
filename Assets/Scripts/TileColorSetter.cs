@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class TileColorSetter : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _rainLabel;
-
-    public void ShowRainLabel()
+    public void ShowRain()
     {
-        _rainLabel.gameObject.SetActive(true);
-        Invoke("HideRainLabel", 5f);
+        GetComponent<MeshRenderer>().material.SetInt("_Rain", 1);
+        Invoke("HideRain", 5f);
     }
-    private void HideRainLabel()
+    private void HideRain()
     {
-        _rainLabel.gameObject.SetActive(false);
+        GetComponent<MeshRenderer>().material.SetInt("_Rain", 0);
     }
     
     public void UpdateTileColors()

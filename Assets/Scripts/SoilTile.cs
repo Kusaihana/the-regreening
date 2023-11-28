@@ -31,7 +31,7 @@ public class SoilTile : MonoBehaviour
     private void Awake()
     {
         _tileColorSetter = FindObjectOfType<TileColorSetter>();
-        InvokeRepeating("RainRainRain", 60f,60f);
+        InvokeRepeating("RainRainRain", 10f,60f);
     }
 
     void Update()
@@ -45,9 +45,8 @@ public class SoilTile : MonoBehaviour
     
     void RainRainRain()
     {
-        //TODO Jason make it rain please :)
         UpdateWater(100);
-        _tileColorSetter.ShowRainLabel();
+        _tileColorSetter.ShowRain();
     }
 
     public void SetSoilProperties(LandType landType)

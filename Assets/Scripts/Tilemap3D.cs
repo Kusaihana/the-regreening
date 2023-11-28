@@ -3,7 +3,7 @@ using UnityEngine;
 public class Tilemap3D : MonoBehaviour
 {
     public GameObject tilePrefab;
-    public int gridSize = 100;
+    public int gridSize = 10;
     
     private TileColorSetter _tileColorSetter;
 
@@ -15,9 +15,9 @@ public class Tilemap3D : MonoBehaviour
 
     private void GenerateSoilMap()
     {
-        for (var x = 0; x < gridSize; x += 5)
+        for (var x = 0; x < gridSize; x += 1)
         {
-            for (var z = 0; z < gridSize; z += 5)
+            for (var z = 0; z < gridSize; z += 1)
             {
                 var tilePosition = new Vector3(x, 0, z);
                 var soilTileObject = Instantiate(tilePrefab, tilePosition, Quaternion.identity);
