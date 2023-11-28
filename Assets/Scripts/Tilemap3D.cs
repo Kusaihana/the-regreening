@@ -11,6 +11,8 @@ public class Tilemap3D : MonoBehaviour
     {
         _tileColorSetter = FindObjectOfType<TileColorSetter>();
         GenerateSoilMap();
+        Invoke("UpdateTileColors", 0.1f);
+
     }
 
     private void GenerateSoilMap()
@@ -32,6 +34,10 @@ public class Tilemap3D : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void UpdateTileColors()
+    {
         _tileColorSetter.UpdateTileColors();
     }
 }

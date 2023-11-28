@@ -18,19 +18,24 @@ public class TileColorSetter : MonoBehaviour
     {
         var mesh = GetComponent<MeshFilter>().mesh;
         var vertices = mesh.vertices;
+
         var colors = new Color[vertices.Length];
 
         for (var i = 0; i < vertices.Length; i++)
         {
             var vertexPosition = transform.TransformPoint(vertices[i]);
-            
+
+            var ray = new Ray(vertexPosition + new Vector3(0, 2, 0), -transform.up);
             RaycastHit hit;
-            if (Physics.Raycast(vertexPosition + Vector3.up * 10f, Vector3.down, out hit, 100f))
+            
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Tile")))
             {
                 SoilTile tile = hit.collider.GetComponent<SoilTile>();
                 if (tile != null)
                 {
                     colors[i] = GetColorFromLandType(tile.landType);
+                    Debug.Log(colors[i]);
+                    Debug.Log(vertexPosition);
                 }
             }
         }
