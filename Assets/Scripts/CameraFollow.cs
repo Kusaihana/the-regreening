@@ -5,9 +5,9 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField] private Transform _player;
-    
+    [SerializeField] Vector3 _cameraOffset;
     void Update () 
     {
-        transform.position = _player.transform.position + new Vector3(0, 7, -10);
+        transform.position = _player.transform.position + _cameraOffset;
     }
 }
