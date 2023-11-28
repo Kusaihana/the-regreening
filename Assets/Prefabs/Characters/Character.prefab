@@ -123,10 +123,10 @@ MonoBehaviour:
   pebbleLayer:
     serializedVersion: 2
     m_Bits: 512
-  minX: -45
-  maxX: 45
-  minZ: -45
-  maxZ: 45
+  minX: -30
+  maxX: 30
+  minZ: -16
+  maxZ: 55
 --- !u!114 &1311247650911219854
 MonoBehaviour:
   m_ObjectHideFlags: 0
