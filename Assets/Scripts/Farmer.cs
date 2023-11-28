@@ -20,7 +20,7 @@ public class Farmer : MonoBehaviour
     public LayerMask waterLayer; 
     public LayerMask pebbleLayer; 
 
-    private const int MaxNumOfPlants = 5;
+    private const int MaxNumOfPlants = 8;
     private int _selectedItemIndex;
     private LandType _currentLandType = LandType.Desert;
 
