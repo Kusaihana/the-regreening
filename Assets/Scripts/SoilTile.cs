@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Linq;
 
 public enum LandType
 {
@@ -115,7 +116,7 @@ public class SoilTile : MonoBehaviour
         else if (landType == LandType.Alive)
         {
             if (CountPlantsOfType(PlantType.Grass) >= 1 &&
-                CountPlantsOfType(PlantType.Dandelion) >= 1 && CountPlantsOfType(PlantType.Bush) >= 2 &&
+                CountPlantsOfType(PlantType.Dandelion) >= 1 && CountPlantsOfType(PlantType.Bush) >= 1 &&
                 waterPercentage >= 300)
             {
                 SetTileType(LandType.Vivid);
@@ -147,6 +148,6 @@ public class SoilTile : MonoBehaviour
     
     private int CountPlantsOfType(PlantType plantType)
     {
-        return plantsOnTile.FindAll(plant => plant.plantSpec.plantType == plantType && plant.currentStage == GrowthStage.Adult).Count;
+        return plantsOnTile.Count(plant => plant.plantSpec.plantType == plantType && plant.currentStage == GrowthStage.Adult);
     }
 }

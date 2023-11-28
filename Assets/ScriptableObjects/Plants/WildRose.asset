@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15d0b708f8a5aec4791587a75f4547d4, type: 3}
   m_Name: WildRose
   m_EditorClassIdentifier: 
-  plantType: 1
+  plantType: 2
   commonName: Wild Rose
   latinName: Rosa acicularis
   description: "Rosa acicularis is a flowering plant in the Rosaceae family. It is
