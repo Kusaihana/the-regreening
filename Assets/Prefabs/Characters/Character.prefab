@@ -107,8 +107,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  _bermPrefab: {fileID: 3725404005726313889, guid: 61ec54323fe1053408d974906af13aa2, type: 3}
+  _scaleCursor: {fileID: 0}
   inventory: {fileID: 0}
-  moveSpeed: 5
+  moveSpeed: 10
   tileLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -118,6 +120,13 @@ MonoBehaviour:
   waterLayer:
     serializedVersion: 2
     m_Bits: 16
+  pebbleLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  minX: -45
+  maxX: 45
+  minZ: -45
+  maxZ: 45
 --- !u!114 &1311247650911219854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,7 +144,9 @@ MonoBehaviour:
   _commonOakText: {fileID: 0}
   _catGrassText: {fileID: 0}
   _wildRoseText: {fileID: 0}
+  _pebbleText: {fileID: 0}
   wateringCanFillAmount: 100
+  pebbleAmount: 0
   seedTypes:
   - {fileID: 11400000, guid: 133cdf25a5a06b041b1a39a6fe73f667, type: 2}
   - {fileID: 11400000, guid: c8eb660ae7386134e9cf2ee4cd52239c, type: 2}

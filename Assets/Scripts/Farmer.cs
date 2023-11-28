@@ -23,6 +23,12 @@ public class Farmer : MonoBehaviour
     private const int MaxNumOfPlants = 8;
     private int _selectedItemIndex;
     private LandType _currentLandType = LandType.Desert;
+    
+    public float minX = -5f;
+    public float maxX = 5f;
+    public float minZ = -5f;
+    public float maxZ = 5f;
+
 
     private void Awake()
     {
@@ -73,8 +79,11 @@ public class Farmer : MonoBehaviour
     private void MovePlayer(Vector3 movement)
     {
         var movementAmount = movement * moveSpeed * Time.deltaTime;
-        transform.Translate(movementAmount, Space.World);
-        
+        var newX = Mathf.Clamp(transform.position.x + movementAmount.x, minX, maxX);
+        var newZ = Mathf.Clamp(transform.position.z + movementAmount.z, minZ, maxZ);
+
+        transform.position = new Vector3(newX, transform.position.y, newZ);
+
         if (movement != Vector3.zero)
         {
             transform.rotation = Quaternion.LookRotation(movement);
