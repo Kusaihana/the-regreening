@@ -34,8 +34,6 @@ public class TileColorSetter : MonoBehaviour
                 if (tile != null)
                 {
                     colors[i] = GetColorFromLandType(tile.landType);
-                    Debug.Log(colors[i]);
-                    Debug.Log(vertexPosition);
                 }
             }
         }

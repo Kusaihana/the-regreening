@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -12,13 +13,14 @@ public class Farmer : MonoBehaviour
     [SerializeField] private List<Image> _items;
     [SerializeField] private GameObject _bermPrefab;
     [SerializeField] private GameObject _scaleCursor;
-    
+
     public Inventory inventory;
     public float moveSpeed = 5f;
     public LayerMask tileLayer;
     public LayerMask plantLayer; 
     public LayerMask waterLayer; 
-    public LayerMask pebbleLayer; 
+    public LayerMask pebbleLayer;
+    public LayerMask npcLayer;
 
     private const int MaxNumOfPlants = 8;
     private int _selectedItemIndex;
