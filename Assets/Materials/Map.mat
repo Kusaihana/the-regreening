@@ -31,12 +31,24 @@ Material:
         m_Texture: {fileID: 2800000, guid: 70f63bbe2e4c8034e95cabfdffecea09, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Dead:
+        m_Texture: {fileID: 2800000, guid: a25819f961a6b2047b458e928daceeea, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _FXRain:
         m_Texture: {fileID: 2800000, guid: 02683dba83f182b4ab7ad90a0fa1e3cb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _GrassAlbedo:
         m_Texture: {fileID: 2800000, guid: e110c18e28cd4bd46bc3dffac5fc5250, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Heigthmap:
+        m_Texture: {fileID: 2800000, guid: 512a64d5a181f6547a2ac8003480fc30, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Lush:
+        m_Texture: {fileID: 2800000, guid: b028210fd98143949b3202c5f856a0cc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _LushAlbedo:
@@ -50,15 +62,20 @@ Material:
     m_Ints: []
     m_Floats:
     - Vector1_: 0.005
+    - _Amplitude: 10
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
     - _BendAmount: 0.005
+    - _Float: 0
+    - _Float_1: 0
     - _Fog: 3.08
     - _FogIntensity: 1
     - _HeightGrassIntensity: 2.3
+    - _POM: 0
     - _Rain: 0
     - _RainAmount: 1
     - _RainSpeed: 8
+    - _Steps: 5
     - _Subtracthorizon: 0.09
     m_Colors:
     - _A: {r: 1, g: 1, b: 1, a: 0}
@@ -69,7 +86,7 @@ Material:
     - _Offset: {r: 0, g: 0, b: 0, a: 0}
     - _RainColor: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 1}
     - _RainTiling: {r: 50, g: 50, b: 0, a: 0}
-    - _Tiling: {r: 2, g: 2, b: 0, a: 0}
+    - _Tiling: {r: 3, g: 3, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &7826773077910166357
 MonoBehaviour:
