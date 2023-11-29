@@ -20,7 +20,7 @@ public class NPCInteraction : MonoBehaviour
         {
             _npcText.text = "Press 'Space' to interact";
             _npcText.gameObject.SetActive(true);
-            other.GetComponent<NPC>().inConversation = true;
+            other.GetComponent<NPC>().canTalk = true;
         }
     }
     void OnTriggerExit(Collider other)
@@ -28,6 +28,7 @@ public class NPCInteraction : MonoBehaviour
         if (other.CompareTag("NPC"))
         {
             _npcText.gameObject.SetActive(false);
+            other.GetComponent<NPC>().canTalk = false;
             other.GetComponent<NPC>().inConversation = false;
         }
     }

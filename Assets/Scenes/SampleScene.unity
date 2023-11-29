@@ -301,6 +301,10 @@ PrefabInstance:
       propertyPath: dialogManager
       value: 
       objectReference: {fileID: 599500126}
+    - target: {fileID: 27995450720278261, guid: 3fb71031b54f55640a18b6030c3b03e6, type: 3}
+      propertyPath: dialogueFilePath
+      value: Narrative/Bard.txt
+      objectReference: {fileID: 0}
     - target: {fileID: 2047344369010755504, guid: 3fb71031b54f55640a18b6030c3b03e6, type: 3}
       propertyPath: m_Name
       value: NPC1

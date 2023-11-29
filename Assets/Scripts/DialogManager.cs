@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using System.IO;
+using UnityEngine.Networking;
 
 public class DialogManager : MonoBehaviour
 {
@@ -18,10 +19,33 @@ public class DialogManager : MonoBehaviour
     
     void Update()
     {
-        if (Input.anyKeyDown && !Input.GetKeyDown(KeyCode.E) && dialogueText.gameObject.activeSelf)
+        if (Input.anyKeyDown && dialogueText.gameObject.activeSelf)
         {
             DisplayNextLine();
         }
+    }
+
+    IEnumerator LoadDialogue(string filePath)
+    {
+        string path = Path.Combine(Application.streamingAssetsPath, filePath);
+
+        using (UnityWebRequest www = UnityWebRequest.Get(path))
+        {
+            yield return www;
+
+            yield return www.SendWebRequest();
+
+            if (www.result == UnityWebRequest.Result.Success)
+            {
+                string[] lines = www.downloadHandler.text.Split('\n');
+                
+                foreach (string line in lines)
+                {
+                    dialogueQueue.Enqueue(line);
+                }
+            }
+        }
+        DisplayNextLine();
     }
 
     public void StartDialogue(string filePath)
@@ -31,14 +55,7 @@ public class DialogManager : MonoBehaviour
         dialogueText.gameObject.SetActive(true);
         interactionText.gameObject.SetActive(false);
         
-        string[] lines = File.ReadAllLines(filePath);
-
-        foreach (string line in lines)
-        {
-            dialogueQueue.Enqueue(line);
-        }
-        
-        DisplayNextLine();
+        StartCoroutine(LoadDialogue(filePath));
     }
 
     private void DisplayNextLine()
