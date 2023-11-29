@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PlayerProtagonist
-  m_Shader: {fileID: -6465566751694194690, guid: 50655abf0e909974aacb1b48f7037a10, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 65211e629f9c1f94897b01f368664403, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -67,7 +67,7 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _BendAmount: 0.0055
+    - _BendAmount: 0.0047
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1

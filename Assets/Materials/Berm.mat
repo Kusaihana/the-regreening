@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Dandelion
+  m_Name: Berm
   m_Shader: {fileID: -6465566751694194690, guid: a90f0de5ab0ad2e4d905439144b9b186, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -24,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: b3b3926e098b6364088305df762f06af, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1900ea857a5d8db469d217389b9b0d2d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FXTexture:
@@ -32,18 +32,21 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: b3b3926e098b6364088305df762f06af, type: 3}
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTexture:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Amount: -0.01
-    - _AtlasHeight: 3
+    - _AtlasHeight: 1
     - _AtlasTile: 0
-    - _AtlasWidth: 2
+    - _AtlasWidth: 1
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _BendAmount: 0.005
+    - _BendAmount: 0.001
     - _Float: 2
     - _Float_1: 2
     - _Growth: 2.5

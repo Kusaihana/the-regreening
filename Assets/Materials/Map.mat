@@ -24,7 +24,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: 9368fa75f9805da41876af7ec5349dc8, type: 3}
+        m_Texture: {fileID: 2800000, guid: a25819f961a6b2047b458e928daceeea, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Alive:
+        m_Texture: {fileID: 2800000, guid: 70f63bbe2e4c8034e95cabfdffecea09, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FXRain:
@@ -32,7 +36,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _GrassAlbedo:
-        m_Texture: {fileID: 2800000, guid: e6684a6d1fcc82149ba2e2da8369aab2, type: 3}
+        m_Texture: {fileID: 2800000, guid: e110c18e28cd4bd46bc3dffac5fc5250, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LushAlbedo:
+        m_Texture: {fileID: 2800000, guid: b028210fd98143949b3202c5f856a0cc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Vivid:
+        m_Texture: {fileID: 2800000, guid: 354fc98b2859b794d9f1338bcf93109b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -49,8 +61,8 @@ Material:
     - _RainSpeed: 8
     - _Subtracthorizon: 0.09
     m_Colors:
-    - _A: {r: 1, g: 0.6787676, b: 0, a: 0}
-    - _B: {r: 0.4367554, g: 1, b: 0, a: 0}
+    - _A: {r: 1, g: 1, b: 1, a: 0}
+    - _B: {r: 1, g: 1, b: 1, a: 0}
     - _C: {r: 1, g: 0.05406789, b: 0, a: 0}
     - _D: {r: 0, g: 0, b: 0, a: 0}
     - _FogColor: {r: 0, g: 0.5566038, b: 0.51811534, a: 0}

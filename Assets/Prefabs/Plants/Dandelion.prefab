@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 4451857479290655377}
   - component: {fileID: 5425427503043212978}
   m_Layer: 7
-  m_Name: Daisy
+  m_Name: Dandelion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plantSpec: {fileID: 11400000, guid: c8eb660ae7386134e9cf2ee4cd52239c, type: 2}
-  _currentStage: 0
+  currentStage: 0
   _meshRenderer: {fileID: 5425427503043212978}
 --- !u!65 &-7669871137635278259
 BoxCollider:

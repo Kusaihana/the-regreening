@@ -31,6 +31,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: fdc17b9a679b55642a763ceb3474147e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: b3b3926e098b6364088305df762f06af, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _AtlasHeight: 2
@@ -38,6 +42,7 @@ Material:
     - _AtlasWidth: 2
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
+    - _BendAmount: 0.005
     - _Float: 2
     - _Float_1: 2
     - _Growth: 2.5
