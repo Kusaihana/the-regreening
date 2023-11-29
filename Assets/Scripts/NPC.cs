@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    public string dialogueFilePath;
+    public DialogManager dialogManager;
+    public bool inConversation;
+    
     void Update()
     {
-        
+        if (inConversation && Input.GetKeyDown(KeyCode.Space))
+        {
+            Interact();
+        }
     }
+
+    void Interact()
+    {
+        dialogManager.StartDialogue(dialogueFilePath);
+    }
+    
 }

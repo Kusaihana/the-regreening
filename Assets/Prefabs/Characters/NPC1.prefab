@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5215626969244639911}
+  - component: {fileID: 27995450720278261}
+  - component: {fileID: 1659378295444646634}
   m_Layer: 0
   m_Name: NPC1
   m_TagString: NPC
@@ -30,48 +32,30 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 773922980611192380}
-  - {fileID: 4900829557952223060}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2876419255659210181
-GameObject:
+--- !u!114 &27995450720278261
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4900829557952223060}
-  - component: {fileID: 7855674818010969021}
-  m_Layer: 0
-  m_Name: Capsule
-  m_TagString: NPC
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4900829557952223060
-Transform:
+  m_GameObject: {fileID: 2047344369010755504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af0b8c6c22da0f45a3d4085432035bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueFilePath: Assets/Narrative/Bard.txt
+  dialogManager: {fileID: 0}
+  inConversation: 0
+--- !u!65 &1659378295444646634
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2876419255659210181}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.32, y: 1.4, z: 5.47}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5215626969244639911}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &7855674818010969021
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2876419255659210181}
+  m_GameObject: {fileID: 2047344369010755504}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -83,10 +67,8 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.87
-  m_Height: 2.73
-  m_Direction: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 3, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1369732982757796927
 PrefabInstance:
@@ -98,7 +80,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1855415141781035523, guid: ca2aee4b3d1f5ef45b617e3c0adef838, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.32
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1855415141781035523, guid: ca2aee4b3d1f5ef45b617e3c0adef838, type: 3}
       propertyPath: m_LocalPosition.y
@@ -106,7 +88,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1855415141781035523, guid: ca2aee4b3d1f5ef45b617e3c0adef838, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.47
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1855415141781035523, guid: ca2aee4b3d1f5ef45b617e3c0adef838, type: 3}
       propertyPath: m_LocalRotation.w

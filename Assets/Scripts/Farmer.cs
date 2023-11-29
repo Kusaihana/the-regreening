@@ -20,7 +20,6 @@ public class Farmer : MonoBehaviour
     public LayerMask plantLayer; 
     public LayerMask waterLayer; 
     public LayerMask pebbleLayer;
-    public LayerMask npcLayer;
 
     private const int MaxNumOfPlants = 8;
     private int _selectedItemIndex;
@@ -247,7 +246,10 @@ public class Farmer : MonoBehaviour
         }
 
         // Enable the selected item
-        _items[_selectedItemIndex].color = Color.green;
+        if (_selectedItemIndex >= 0 && _selectedItemIndex < _items.Count)
+        {
+            _items[_selectedItemIndex].color = Color.green;
+        }
     }
 
     void WaterTile()
