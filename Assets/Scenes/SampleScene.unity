@@ -2289,6 +2289,8 @@ MonoBehaviour:
   dialogueText: {fileID: 1041153615}
   dialoguePanel: {fileID: 48752059}
   npcIcon: {fileID: 773300600}
+  isScene1: 0
+  scene1FilePath: 
   rattlesSprite: {fileID: 21300000, guid: 024cd653a6d48904083891592c8c9c63, type: 3}
   currentSprite: {fileID: 21300000, guid: 40775b4419d40f84d86290e65ec0b29a, type: 3}
   bardSprite: {fileID: 21300000, guid: 5b7e7c73c1285c343b24da90de64fda1, type: 3}
@@ -7469,6 +7471,14 @@ PrefabInstance:
     - target: {fileID: 6551134430890599450, guid: 2472e31e9f0dfe842afbaca795e7c06e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6691646163095229215, guid: 2472e31e9f0dfe842afbaca795e7c06e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6828198661111553651, guid: 2472e31e9f0dfe842afbaca795e7c06e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
