@@ -129,7 +129,7 @@ public class SoilTile : MonoBehaviour
         else if (landType == LandType.Vivid)
         {
             if (CountPlantsOfType(PlantType.Bush) >= 1 &&
-                CountPlantsOfType(PlantType.Tree) >= 1 && waterPercentage >= 500)
+                waterPercentage >= 500)
             {
                 SetTileType(LandType.Lush);
             }
