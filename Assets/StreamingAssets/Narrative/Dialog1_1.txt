@@ -1,0 +1,25 @@
+THE CURRENT: Curious…
+THE CURRENT: Mostly intact, by the looks of you.
+THE CURRENT: A little rusty, maybe…
+THE CURRENT: But I’ve been searching for too long. You’ll have to do.
+THE CURRENT: I REALLY hope this works.
+(The current infuses Rattles with a glowing effect… Which fades out.)
+THE CURRENT: Nothing…
+THE CURRENT: Perhaps this one is too far gone.
+THE CURRENT: Oh well. Suppose I’ll have to keep looking.
+THE CURRENT: What’s another hundred years…
+RATTLES: …WHIR…
+(Rattles gets up.)
+THE CURRENT: Oh! My lucky stars! It worked!
+THE CURRENT: You won’t believe how excited I am.
+RATTLES: WHIR. RATTLE.
+THE CURRENT: Ah, yes! Apologies! I got a bit ahead of myself.
+THE CURRENT: I’m The Current. I’ve been looking for someone like you for… a long while.
+THE CURRENT: Speaking of which… what do I call *you*?
+RATTLES: RATTLE-RATTLE.
+THE CURRENT: Em-Tee Ararat Seven One Five Nine? Ah, I see. It’s engraved on your side there.
+THE CURRENT: That’s a mouthful. That won’t do at all.
+THE CURRENT: I think I’m going to call you… “Rattles”.
+RATTLES: RATTLE.
+THE CURRENT: I’m glad you like it! 
+THE CURRENT: Now, that’s water back there, an old well. Let’s head over! (Use WASD to move Rattle)

@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using System.IO;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DialogManager : MonoBehaviour
@@ -14,6 +15,8 @@ public class DialogManager : MonoBehaviour
     private Queue<string> dialogueQueue = new Queue<string>();
 
     public Image npcIcon;
+    public bool isScene1;
+    public string scene1FilePath;
     
     public Sprite rattlesSprite;
     public Sprite currentSprite;
@@ -29,6 +32,11 @@ public class DialogManager : MonoBehaviour
     {
         dialogueText.text = "";
         dialoguePanel.gameObject.SetActive(false);
+        
+        if (isScene1)
+        {
+            StartDialogue(scene1FilePath);
+        }
     }
     
     void Update()
@@ -67,8 +75,8 @@ public class DialogManager : MonoBehaviour
         dialogueQueue.Clear();
         
         dialoguePanel.gameObject.SetActive(true);
-        interactionText.gameObject.SetActive(false);
-        
+        if (interactionText != null) interactionText.gameObject.SetActive(false);
+
         StartCoroutine(LoadDialogue(filePath));
     }
 
@@ -90,6 +98,8 @@ public class DialogManager : MonoBehaviour
         dialogueText.text = "";
         dialoguePanel.gameObject.SetActive(true);
 
+        npcIcon.enabled = true;
+        
         if (line.StartsWith("CLOVER THE DEER"))
         {
             npcIcon.sprite = cloverSprite;
@@ -118,6 +128,10 @@ public class DialogManager : MonoBehaviour
         {
             npcIcon.sprite = denprite;
         }
+        else
+        {
+            npcIcon.enabled = false;
+        }
 
         foreach (char letter in line.ToCharArray())
         {
@@ -130,5 +144,10 @@ public class DialogManager : MonoBehaviour
     void EndDialogue()
     {
         dialoguePanel.gameObject.SetActive(false);
+        
+        if (isScene1)
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
     }
 }
