@@ -37,7 +37,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 087e15b7b7f18564db2fc5bf9adaa186, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FXTexture:
@@ -48,7 +48,7 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _BendAmount: 0.0035
+    - _BendAmount: 0.0043
     - _FlipSpeed: 1
     m_Colors:
     - _FlipTIling: {r: 4, g: 4, b: 0, a: 0}

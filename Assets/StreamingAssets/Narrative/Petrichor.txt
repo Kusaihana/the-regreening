@@ -1,0 +1,34 @@
+PETRICHOR: You have awakened me.
+PETRICHOR: You have awakened this land.
+PETRICHOR: You, whose kind ruined it at the behest of your masters.
+PETRICHOR: Who stripped it of its flesh, its blood, its life.
+PETRICHOR: What say you?
+RATTLES: RATTLE-RATTLE.
+THE CURRENT: Eminent One… the machine is with me.
+THE CURRENT: We summoned you, and request your presence humbly.
+PETRICHOR: A wayward, landless spirit… using a tool of the Ravagers to do its bidding.
+PETRICHOR: I fail to find the words to convey my disgust.
+THE CURRENT: We have tried our best to restore this land, Great Petrichor.
+THE CURRENT: Where desert once stood, now stands a thriving valley.
+PETRICHOR: That, I see. I cannot deny your effectiveness.
+PETRICHOR: I call your motives into question, however.
+RATTLES: WHIR. RATTLE. WHIR.
+PETRICHOR: Ha! The Ravager machine speaks of justice.
+PETRICHOR: Nothing of the such is written into your code. You shall not trick me.
+THE CURRENT: It is a machine no longer… for I have shared my essence with it.
+PETRICHOR: You… You would bind yourself to a rusting scrap?
+PETRICHOR: Hm… I see you speak the truth.
+PETRICHOR: On with it. For what purpose do you summon me?
+THE CURRENT: We seek an answer to a question, Great Petrichor.
+THE CURRENT: What are the trappings of the Rite of Regreening?
+PETRICHOR: Ah! I can tell you what I know, but you must understand.
+PETRICHOR: The Rite is a fruitless undertaking, for you lack its most crucial component.
+PETRICHOR: The Spirit of Humankind, of those who have abandoned this Earth.
+THE CURRENT: We ask that you share your knowledge regardless.
+PETRICHOR: Very well. I know but one piece, that which was entrusted to me.
+PETRICHOR: “Thus we beseech the benison of rain, What lifeless was shall vigorous be again.”
+PETRICHOR: You will have to seek the rest from others, who still sleep.
+THE CURRENT: Thank you, Great Petrichor.
+PETRICHOR: I wish you luck on your fool’s errand.
+PETRICHOR: If nothing else, some good will come of your tending of the land in the process.
+PETRICHOR: Begone now.

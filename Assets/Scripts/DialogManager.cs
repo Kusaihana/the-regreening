@@ -4,17 +4,29 @@ using TMPro;
 using UnityEngine;
 using System.IO;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class DialogManager : MonoBehaviour
 {
     public TMP_Text interactionText;
     public TMP_Text dialogueText;
+    public GameObject dialoguePanel;
     private Queue<string> dialogueQueue = new Queue<string>();
+
+    public Image npcIcon;
+    
+    public Sprite rattlesSprite;
+    public Sprite currentSprite;
+    public Sprite bardSprite;
+    public Sprite cloverSprite;
+    public Sprite cocoSprite;
+    public Sprite petrichorSprite;
+    public Sprite denprite;
 
     void Start()
     {
         dialogueText.text = "";
-        dialogueText.gameObject.SetActive(false);
+        dialoguePanel.gameObject.SetActive(false);
     }
     
     void Update()
@@ -52,7 +64,7 @@ public class DialogManager : MonoBehaviour
     {
         dialogueQueue.Clear();
         
-        dialogueText.gameObject.SetActive(true);
+        dialoguePanel.gameObject.SetActive(true);
         interactionText.gameObject.SetActive(false);
         
         StartCoroutine(LoadDialogue(filePath));
@@ -73,6 +85,24 @@ public class DialogManager : MonoBehaviour
     IEnumerator TypeDialogue(string line)
     {
         dialogueText.text = "";
+        dialoguePanel.gameObject.SetActive(true);
+
+        if (line.StartsWith("CLOVER THE DEER"))
+        {
+            npcIcon.sprite = cloverSprite;
+        }
+        else if (line.StartsWith("RATTLES"))
+        {
+            npcIcon.sprite = rattlesSprite;
+        }
+        else if (line.StartsWith("THE CURRENT"))
+        {
+            npcIcon.sprite = currentSprite;
+        }
+        else if (line.StartsWith("PETRICHOR"))
+        {
+            npcIcon.sprite = petrichorSprite;
+        }
 
         foreach (char letter in line.ToCharArray())
         {
@@ -83,6 +113,6 @@ public class DialogManager : MonoBehaviour
 
     void EndDialogue()
     {
-        dialogueText.gameObject.SetActive(false);
+        dialoguePanel.gameObject.SetActive(false);
     }
 }
