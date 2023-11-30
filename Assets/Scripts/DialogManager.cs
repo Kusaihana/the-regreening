@@ -23,6 +23,8 @@ public class DialogManager : MonoBehaviour
     public Sprite petrichorSprite;
     public Sprite denprite;
 
+    private bool typing;
+
     void Start()
     {
         dialogueText.text = "";
@@ -31,7 +33,7 @@ public class DialogManager : MonoBehaviour
     
     void Update()
     {
-        if (Input.anyKeyDown && dialogueText.gameObject.activeSelf)
+        if (Input.anyKeyDown && dialogueText.gameObject.activeSelf && !typing)
         {
             DisplayNextLine();
         }
@@ -84,6 +86,7 @@ public class DialogManager : MonoBehaviour
 
     IEnumerator TypeDialogue(string line)
     {
+        typing = true;
         dialogueText.text = "";
         dialoguePanel.gameObject.SetActive(true);
 
@@ -103,12 +106,25 @@ public class DialogManager : MonoBehaviour
         {
             npcIcon.sprite = petrichorSprite;
         }
+        else if (line.StartsWith("BARD"))
+        {
+            npcIcon.sprite = bardSprite;
+        }
+        else if (line.StartsWith("COCO"))
+        {
+            npcIcon.sprite = cocoSprite;
+        }
+        else if (line.StartsWith("DEN"))
+        {
+            npcIcon.sprite = denprite;
+        }
 
         foreach (char letter in line.ToCharArray())
         {
             dialogueText.text += letter;
             yield return null;
         }
+        typing = false;
     }
 
     void EndDialogue()
