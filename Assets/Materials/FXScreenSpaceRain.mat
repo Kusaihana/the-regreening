@@ -44,7 +44,7 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _Rain: 1
+    - _Rain: 0
     - _RainCurtainFade: 1.5
     - _RainCurtainHeight: 0.578
     - _RainDirection: 0.16
