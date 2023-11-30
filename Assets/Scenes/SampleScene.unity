@@ -3575,6 +3575,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7127045764111263525, guid: 28481588ca8bf7d40b4a5e281216f15f, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 1810806346}
+    - target: {fileID: 7127045764111263525, guid: 28481588ca8bf7d40b4a5e281216f15f, type: 3}
+      propertyPath: moveSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7127045764111263525, guid: 28481588ca8bf7d40b4a5e281216f15f, type: 3}
       propertyPath: _scaleCursor
       value: 
       objectReference: {fileID: 1781777279}
@@ -5474,6 +5482,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781777279}
   m_CullTransparentMesh: 1
+--- !u!95 &1810806346 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 198684395020885242, guid: 28481588ca8bf7d40b4a5e281216f15f, type: 3}
+  m_PrefabInstance: {fileID: 1160845451}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1815764221
 GameObject:
   m_ObjectHideFlags: 0

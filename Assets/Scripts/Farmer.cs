@@ -13,6 +13,7 @@ public class Farmer : MonoBehaviour
     [SerializeField] private List<Image> _items;
     [SerializeField] private GameObject _bermPrefab;
     [SerializeField] private GameObject _scaleCursor;
+    [SerializeField] private Animator _animator;
 
     public Inventory inventory;
     public float moveSpeed = 5f;
@@ -91,6 +92,11 @@ public class Farmer : MonoBehaviour
         if (movement != Vector3.zero)
         {
             transform.rotation = Quaternion.LookRotation(movement);
+            _animator.SetFloat("Walking", 1f);
+        }
+        else
+        {
+            _animator.SetFloat("Walking", 0f);
         }
     }
     
