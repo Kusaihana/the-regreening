@@ -23,7 +23,9 @@ public class Farmer : MonoBehaviour
 
     private const int MaxNumOfPlants = 8;
     private int _selectedItemIndex;
+    private bool _waterDialogShown;
     private LandType _currentLandType = LandType.Desert;
+    private DialogManager _dialogManager;
     
     public float minX = -5f;
     public float maxX = 5f;
@@ -34,6 +36,7 @@ public class Farmer : MonoBehaviour
     private void Awake()
     {
         inventory = GetComponent<Inventory>();
+        _dialogManager = FindObjectOfType<DialogManager>();
         UpdateSelectedItem();
     }
 
@@ -259,6 +262,11 @@ public class Farmer : MonoBehaviour
         
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, waterLayer))
         {
+            if (!_waterDialogShown)
+            {
+                _dialogManager.StartDialogue("Narrative/Dialog1_2.txt");
+                _waterDialogShown = true;
+            }
             inventory.FillWateringCan();
             return;
         }
