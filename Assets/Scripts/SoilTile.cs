@@ -108,7 +108,7 @@ public class SoilTile : MonoBehaviour
     {
         if (landType == LandType.Desert)
         {
-            if (CountPlantsOfType(PlantType.Grass) >= 3 && waterPercentage >= 150)
+            if (CountPlantsOfType(PlantType.Grass) >= 1 && waterPercentage >= 150)
             {
                 SetTileType(LandType.Alive);
             }
@@ -116,12 +116,12 @@ public class SoilTile : MonoBehaviour
         else if (landType == LandType.Alive)
         {
             if (CountPlantsOfType(PlantType.Grass) >= 1 &&
-                CountPlantsOfType(PlantType.Dandelion) >= 1 && CountPlantsOfType(PlantType.Bush) >= 1 &&
+                CountPlantsOfType(PlantType.Dandelion) >= 1 &&
                 waterPercentage >= 300)
             {
                 SetTileType(LandType.Vivid);
             }
-            else if (CountPlantsOfType(PlantType.Grass) < 3 && waterPercentage < 150)
+            else if (waterPercentage < 150)
             {
                 SetTileType(LandType.Desert);
             }
@@ -129,11 +129,11 @@ public class SoilTile : MonoBehaviour
         else if (landType == LandType.Vivid)
         {
             if (CountPlantsOfType(PlantType.Bush) >= 1 &&
-                CountPlantsOfType(PlantType.Tree) >= 3 && waterPercentage >= 500)
+                CountPlantsOfType(PlantType.Tree) >= 1 && waterPercentage >= 500)
             {
                 SetTileType(LandType.Lush);
             }
-            else if (CountPlantsOfType(PlantType.Bush) < 2 && waterPercentage < 300)
+            else if (waterPercentage < 300)
             {
                 SetTileType(LandType.Alive);
             }
