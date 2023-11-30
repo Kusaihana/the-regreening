@@ -27,14 +27,14 @@ MonoBehaviour:
   plantPrefab: {fileID: 8829967018354640548, guid: 54335616a0c4b194cbb8518635687bf2, type: 3}
   seedStage:
     growthTimeRangeDesert:
-      min: 0.2
-      max: 0.3
-    growthTimeRangeAlive:
       min: 0.1
-      max: 0.2
+      max: 0.15
+    growthTimeRangeAlive:
+      min: 0.05
+      max: 0.1
     growthTimeRangeVivid:
-      min: 0.2
-      max: 0.3
+      min: 0.1
+      max: 0.15
     growthTimeRangeLush:
       min: 0
       max: 0
@@ -43,14 +43,14 @@ MonoBehaviour:
     waterUsage: 10
   seedlingStage:
     growthTimeRangeDesert:
-      min: 0.2
-      max: 0.3
-    growthTimeRangeAlive:
       min: 0.1
-      max: 0.2
+      max: 0.15
+    growthTimeRangeAlive:
+      min: 0.05
+      max: 0.1
     growthTimeRangeVivid:
-      min: 0.2
-      max: 0.3
+      min: 0.1
+      max: 0.15
     growthTimeRangeLush:
       min: 0
       max: 0
@@ -59,14 +59,14 @@ MonoBehaviour:
     waterUsage: 14
   saplingStage:
     growthTimeRangeDesert:
-      min: 0.3
-      max: 0.4
+      min: 0.15
+      max: 0.2
     growthTimeRangeAlive:
-      min: 0.2
-      max: 0.3
+      min: 0.1
+      max: 0.15
     growthTimeRangeVivid:
-      min: 0.3
-      max: 0.4
+      min: 0.15
+      max: 0.2
     growthTimeRangeLush:
       min: 0
       max: 0
