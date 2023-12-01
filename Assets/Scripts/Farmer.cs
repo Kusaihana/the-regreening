@@ -281,7 +281,7 @@ public class Farmer : MonoBehaviour
                 _waterDialogShown = true;
             }
             inventory.FillWateringCan();
-            SpawnWaterParticles(transform.position + new Vector3(1.8f, 0f, 0f));
+            SpawnWaterParticles(transform.position + transform.forward * 1.3f);
             return;
         }
         
@@ -295,7 +295,7 @@ public class Farmer : MonoBehaviour
                 {
                     soilTile.UpdateWater(10);
                     inventory.WaterTile(10);
-                    SpawnWaterParticles(transform.position + new Vector3(1.8f, 0f, 0f));
+                    SpawnWaterParticles(transform.position + transform.forward * 1.3f);
                 }
             }        
         }
@@ -341,7 +341,7 @@ public class Farmer : MonoBehaviour
                     
                     inventory.seeds[seedType.commonName]--;
                     inventory.UpdateSeedText(seedType.commonName);
-                    SpawnPlantingParticles(transform.position + new Vector3(1f, 0f, 0f));
+                    SpawnPlantingParticles(transform.position + transform.forward * 1.3f);
                 }
             }
             else
@@ -390,7 +390,7 @@ public class Farmer : MonoBehaviour
                 {
                     soilTile.plantsOnTile.Remove(closestPlant);
                     Destroy(closestPlant.gameObject);
-                    SpawnPlantingParticles(transform.position + new Vector3(1f, 0f, 0f));
+                    SpawnPlantingParticles(transform.position + transform.forward * 1.3f);
                     
                     var numOfSeeds = Random.Range(1, 5);
                     inventory.AddSeed(closestPlant.plantSpec, numOfSeeds);

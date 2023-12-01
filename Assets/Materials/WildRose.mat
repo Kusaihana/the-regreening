@@ -32,12 +32,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 2539cbb110450f44bbd2f0dce1756517, type: 3}
+        m_Texture: {fileID: 2800000, guid: a66fd160ed51fd448b5f504a2c385c2c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AtlasHeight: 2
+    - _AtlasHeight: 3
     - _AtlasTile: 0
     - _AtlasWidth: 2
     - _BUILTIN_QueueControl: 0
