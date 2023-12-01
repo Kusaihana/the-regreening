@@ -3761,6 +3761,10 @@ PrefabInstance:
       propertyPath: _items.Array.data[5]
       value: 
       objectReference: {fileID: 2029300617}
+    - target: {fileID: 7127045764111263525, guid: 28481588ca8bf7d40b4a5e281216f15f, type: 3}
+      propertyPath: _waterParticlesPrefab
+      value: 
+      objectReference: {fileID: 1449781665931166578, guid: 5fe5583dc0d6c964daff0b31cdc87c78, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

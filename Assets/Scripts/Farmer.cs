@@ -14,6 +14,7 @@ public class Farmer : MonoBehaviour
     [SerializeField] private GameObject _bermPrefab;
     [SerializeField] private GameObject _scaleCursor;
     [SerializeField] private Animator _animator;
+    [SerializeField] public GameObject _waterParticlesPrefab; 
 
     public Inventory inventory;
     public float moveSpeed = 5f;
@@ -274,6 +275,7 @@ public class Farmer : MonoBehaviour
                 _waterDialogShown = true;
             }
             inventory.FillWateringCan();
+            SpawnWaterParticles(transform.position + new Vector3(1.8f, 0f, 1f));
             return;
         }
         
@@ -287,8 +289,25 @@ public class Farmer : MonoBehaviour
                 {
                     soilTile.UpdateWater(10);
                     inventory.WaterTile(10);
+                    SpawnWaterParticles(transform.position + new Vector3(1.8f, 0f, 0f));
                 }
             }        
+        }
+    }
+    
+    private void SpawnWaterParticles(Vector3 pos)
+    {
+        if (_waterParticlesPrefab != null)
+        {
+            GameObject particles = Instantiate(_waterParticlesPrefab, pos, Quaternion.identity);
+            
+            particles.transform.parent = transform;
+            
+            particles.GetComponent<ParticleSystem>().Play();
+            
+            var particleDuration = particles.GetComponent<ParticleSystem>().main.duration;
+
+            Destroy(particles, particleDuration);
         }
     }
 
