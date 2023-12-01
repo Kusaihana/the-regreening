@@ -18,6 +18,7 @@ public enum LandType
 public class SoilTile : MonoBehaviour
 {
     [SerializeField] private TMP_Text _tileLabel;
+    public List<PlantSpecs> seedTypes;
 
     public float waterPercentage;
     public float qualityLand;
@@ -28,10 +29,12 @@ public class SoilTile : MonoBehaviour
 
     private TileColorSetter _tileColorSetter;
     private int _seedAmount;
+    private Inventory _inventory;
 
     private void Awake()
     {
         _tileColorSetter = FindObjectOfType<TileColorSetter>();
+        _inventory = FindObjectOfType<Inventory>();
         InvokeRepeating("RainRainRain", 10f,60f);
     }
 
@@ -57,7 +60,7 @@ public class SoilTile : MonoBehaviour
         if (landType == LandType.Desert)
         {
             waterPercentage = 100;
-            evaporationVariable = 1;
+            evaporationVariable = 2f;
         }
 
         _tileLabel.color = GetColorByTileType();
@@ -120,6 +123,7 @@ public class SoilTile : MonoBehaviour
                 waterPercentage >= 300)
             {
                 SetTileType(LandType.Vivid);
+                _inventory.AddSeed(seedTypes[2], 5);
             }
             else if (waterPercentage < 150)
             {
@@ -132,6 +136,7 @@ public class SoilTile : MonoBehaviour
                 waterPercentage >= 500)
             {
                 SetTileType(LandType.Lush);
+                _inventory.AddSeed(seedTypes[3], 5);
             }
             else if (waterPercentage < 300)
             {

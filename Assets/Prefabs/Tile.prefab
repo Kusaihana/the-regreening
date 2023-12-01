@@ -47,6 +47,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tileLabel: {fileID: 4509612022699763320}
+  seedTypes:
+  - {fileID: 11400000, guid: 133cdf25a5a06b041b1a39a6fe73f667, type: 2}
+  - {fileID: 11400000, guid: c8eb660ae7386134e9cf2ee4cd52239c, type: 2}
+  - {fileID: 11400000, guid: 2b5719403a1e6884eac2d18488e86b1b, type: 2}
+  - {fileID: 11400000, guid: b54373e4dfc236a4ca0efa4bce1ce4e2, type: 2}
   waterPercentage: 0
   qualityLand: 0
   evaporationVariable: 0
