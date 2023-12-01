@@ -19,10 +19,8 @@ public class Inventory : MonoBehaviour
 
     void Start()
     {
-        foreach (var seedType in seedTypes)
-        {
-            AddSeed(seedType, 5);
-        }
+        AddSeed(seedTypes[0], 10);
+        AddSeed(seedTypes[1], 10);
     }
 
     public void AddPebble()

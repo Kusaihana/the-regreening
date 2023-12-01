@@ -387,7 +387,7 @@ public class Farmer : MonoBehaviour
                     Destroy(closestPlant.gameObject);
                     SpawnPlantingParticles(transform.position + new Vector3(1f, 0f, 0f));
                     
-                    var numOfSeeds = Random.Range(0, 5);
+                    var numOfSeeds = Random.Range(1, 5);
                     inventory.AddSeed(closestPlant.plantSpec, numOfSeeds);
                 }
             }

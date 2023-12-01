@@ -581,6 +581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23c149e126eecc5479488504bfe42a5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rainPlane: {fileID: 0}
 --- !u!1 &599500125
 GameObject:
   m_ObjectHideFlags: 0
@@ -2721,7 +2722,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1590659700616182920, guid: aef8b68a6ccc44d4c8c12e5ba214f82d, type: 3}
       propertyPath: m_Volume
-      value: 0.5
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4531053306626609140, guid: aef8b68a6ccc44d4c8c12e5ba214f82d, type: 3}
       propertyPath: m_Name
