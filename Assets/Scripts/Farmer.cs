@@ -385,6 +385,7 @@ public class Farmer : MonoBehaviour
                 {
                     soilTile.plantsOnTile.Remove(closestPlant);
                     Destroy(closestPlant.gameObject);
+                    SpawnPlantingParticles(transform.position + new Vector3(1f, 0f, 0f));
                     
                     var numOfSeeds = Random.Range(0, 5);
                     inventory.AddSeed(closestPlant.plantSpec, numOfSeeds);
