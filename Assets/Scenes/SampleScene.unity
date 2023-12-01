@@ -2435,7 +2435,7 @@ MonoBehaviour:
   bardSprite: {fileID: 21300000, guid: 5100eeb73c4e66d4bac20d899eca84f9, type: 3}
   cloverSprite: {fileID: 21300000, guid: bc24385d99dc76e4b9be77027f25c168, type: 3}
   cocoSprite: {fileID: 21300000, guid: 65668b76fe3b9c44ea8bdba847f5faff, type: 3}
-  petrichorSprite: {fileID: 0}
+  petrichorSprite: {fileID: 21300000, guid: 5c518c598afc6854f91e06b0bcb77439, type: 3}
   denprite: {fileID: 21300000, guid: 6a098ee14f861d34eb8cd6bd76f2f9d1, type: 3}
 --- !u!4 &599500127
 Transform:
