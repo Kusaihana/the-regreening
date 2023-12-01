@@ -33,11 +33,11 @@ MonoBehaviour:
       min: 0
       max: 0
     growthTimeRangeAlive:
+      min: 0.5
+      max: 0.6
+    growthTimeRangeVivid:
       min: 0.4
       max: 0.5
-    growthTimeRangeVivid:
-      min: 0.3
-      max: 0.4
     growthTimeRangeLush:
       min: 0.4
       max: 0.5
@@ -49,14 +49,14 @@ MonoBehaviour:
       min: 0
       max: 0
     growthTimeRangeAlive:
-      min: 0.5
-      max: 0.6
+      min: 0.6
+      max: 0.7
     growthTimeRangeVivid:
-      min: 0.4
-      max: 0.5
-    growthTimeRangeLush:
       min: 0.5
       max: 0.6
+    growthTimeRangeLush:
+      min: 0.6
+      max: 0.7
     waterRequirement: 20
     evaporationEffect: 20
     waterUsage: 16
@@ -65,14 +65,14 @@ MonoBehaviour:
       min: 0
       max: 0
     growthTimeRangeAlive:
-      min: 0.6
-      max: 0.7
+      min: 0.7
+      max: 0.8
     growthTimeRangeVivid:
-      min: 0.5
-      max: 0.6
-    growthTimeRangeLush:
       min: 0.6
       max: 0.7
+    growthTimeRangeLush:
+      min: 0.7
+      max: 0.8
     waterRequirement: 10
     evaporationEffect: 30
     waterUsage: 80
