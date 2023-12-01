@@ -2317,6 +2317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23c149e126eecc5479488504bfe42a5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rainPlane: {fileID: 1697323420224621742}
 --- !u!1 &599500125
 GameObject:
   m_ObjectHideFlags: 0
@@ -3739,27 +3740,27 @@ PrefabInstance:
     - target: {fileID: 7127045764111263525, guid: 28481588ca8bf7d40b4a5e281216f15f, type: 3}
       propertyPath: _items.Array.data[0]
       value: 
-      objectReference: {fileID: 495918361}
+      objectReference: {fileID: 2103171026}
     - target: {fileID: 7127045764111263525, guid: 28481588ca8bf7d40b4a5e281216f15f, type: 3}
       propertyPath: _items.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 437695762}
     - target: {fileID: 7127045764111263525, guid: 28481588ca8bf7d40b4a5e281216f15f, type: 3}
       propertyPath: _items.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1488088688}
     - target: {fileID: 7127045764111263525, guid: 28481588ca8bf7d40b4a5e281216f15f, type: 3}
       propertyPath: _items.Array.data[3]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2076177690}
     - target: {fileID: 7127045764111263525, guid: 28481588ca8bf7d40b4a5e281216f15f, type: 3}
       propertyPath: _items.Array.data[4]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 198340566}
     - target: {fileID: 7127045764111263525, guid: 28481588ca8bf7d40b4a5e281216f15f, type: 3}
       propertyPath: _items.Array.data[5]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2029300617}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7722,6 +7723,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2472e31e9f0dfe842afbaca795e7c06e, type: 3}
+--- !u!23 &1697323420224621742 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6710915454413650938, guid: 2472e31e9f0dfe842afbaca795e7c06e, type: 3}
+  m_PrefabInstance: {fileID: 1697323420224621741}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1724629595709796082
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ using Random = UnityEngine.Random;
 public class Farmer : MonoBehaviour
 {
     [SerializeField] private List<PlantSpecs> _seedTypes;
-    [SerializeField] private List<Image> _items;
+    [SerializeField] private List<TMP_Text> _items;
     [SerializeField] private GameObject _bermPrefab;
     [SerializeField] private GameObject _scaleCursor;
     [SerializeField] private Animator _animator;
@@ -251,13 +251,13 @@ public class Farmer : MonoBehaviour
     {
         foreach (var item in _items)
         {
-            item.color = Color.white;
+            item.color = new Color(243/255f,231/255f,187/255f);
         }
 
         // Enable the selected item
         if (_selectedItemIndex >= 0 && _selectedItemIndex < _items.Count)
         {
-            _items[_selectedItemIndex].color = Color.green;
+            _items[_selectedItemIndex].color = new Color(100/255f,200/255f,100/255f);
         }
     }
 

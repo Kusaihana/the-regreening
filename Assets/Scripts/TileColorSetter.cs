@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class TileColorSetter : MonoBehaviour
 {
+    [SerializeField] private MeshRenderer _rainPlane;
+    
     public void ShowRain()
     {
         GetComponent<MeshRenderer>().material.SetInt("_Rain", 1);
+        _rainPlane.material.SetInt("_Rain", 1);
+        
         Invoke("HideRain", 5f);
     }
     private void HideRain()
     {
         GetComponent<MeshRenderer>().material.SetInt("_Rain", 0);
+        _rainPlane.material.SetInt("_Rain", 0);
     }
     
     public void UpdateTileColors()
