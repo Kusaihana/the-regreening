@@ -1,5 +1,17 @@
-BARD: hi this is line 1
-BARD: line 2 continues here
-BARD: ohh even more stuff on line 3
-BARD: it will be end of my speech soon
-BARD: the end bai!
+BARD: Hm. You are a functioning human-built robot.
+RATTLES: RATTLE-WHIR.
+BARD: A fascinating discovery for a roboticist or an archeologist.
+BARD: Unfortunately, I am neither. 
+BARD: So I must ask you to step away before you interfere with my thesis.
+THE CURRENT: Oh! Sorry about that. What is your thesis, if we may ask?
+BARD: A spiritual manifestation too, I see. How fortunate for a parapsychologist.
+BARD: I am conducting a study of the water content in soil samples in this wasteland.
+BARD: I am aiming to prove my pet theory about natural water retention.
+RATTLES: WHIR-WHIR?
+BARD: I need to demonstrate that using berms and rocks has a net positive effect on the water content of the soil.
+BARD: In fact, I am certain of it. But my academic advisor demands proof.
+BARD: Hence why I’m here, and not at the Athenaeum writing my paper.
+BARD: Perhaps you’d be willing to assist me in my research?
+THE CURRENT: Berms and rocks, you say? We’ll see what we can do.
+BARD: Yes. That would be of great help to me.
+BARD: Okay. I’m going back to measuring samples now.
