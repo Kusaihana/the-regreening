@@ -72,10 +72,10 @@ public class Farmer : MonoBehaviour
                 {
                     var newRotation = newLandType switch
                     {
-                        LandType.Alive => -45f,
-                        LandType.Vivid => -90f,
-                        LandType.Lush => -135f,
-                        _ => 0f
+                        LandType.Alive => 25f,
+                        LandType.Vivid => -25f,
+                        LandType.Lush => -75f,
+                        _ => 75f
                     };
 
                     _currentLandType = newLandType;
@@ -281,7 +281,7 @@ public class Farmer : MonoBehaviour
                 _waterDialogShown = true;
             }
             inventory.FillWateringCan();
-            SpawnWaterParticles(transform.position + new Vector3(1.8f, 0f, 1f));
+            SpawnWaterParticles(transform.position + new Vector3(1.8f, 0f, 0f));
             return;
         }
         
