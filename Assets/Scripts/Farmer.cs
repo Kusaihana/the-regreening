@@ -14,6 +14,7 @@ public class Farmer : MonoBehaviour
     [SerializeField] private GameObject _bermPrefab;
     [SerializeField] private GameObject _scaleCursor;
     [SerializeField] private Animator _animator;
+    [SerializeField] private Animator _beeAnimator;
     [SerializeField] public GameObject _waterParticlesPrefab; 
     [SerializeField] public GameObject _plantingParticlesPrefab;
 
@@ -97,10 +98,12 @@ public class Farmer : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(movement);
             _animator.SetFloat("Walking", 1f);
+            _beeAnimator.SetFloat("Walking", 1f);
         }
         else
         {
             _animator.SetFloat("Walking", 0f);
+            _beeAnimator.SetFloat("Walking", 0f);
         }
     }
     
