@@ -15,6 +15,7 @@ public class Farmer : MonoBehaviour
     [SerializeField] private GameObject _scaleCursor;
     [SerializeField] private Animator _animator;
     [SerializeField] public GameObject _waterParticlesPrefab; 
+    [SerializeField] public GameObject _plantingParticlesPrefab;
 
     public Inventory inventory;
     public float moveSpeed = 5f;
@@ -335,12 +336,29 @@ public class Farmer : MonoBehaviour
                     
                     inventory.seeds[seedType.commonName]--;
                     inventory.UpdateSeedText(seedType.commonName);
+                    SpawnPlantingParticles(transform.position + new Vector3(1f, 0f, 0f));
                 }
             }
             else
             {
                 Debug.Log("Cannot plant on top of an existing plant!");
             }
+        }
+    }
+    
+    private void SpawnPlantingParticles(Vector3 pos)
+    {
+        if (_plantingParticlesPrefab != null)
+        {
+            GameObject particles = Instantiate(_plantingParticlesPrefab, pos, Quaternion.identity);
+            
+            particles.transform.parent = transform;
+            
+            particles.GetComponent<ParticleSystem>().Play();
+            
+            var particleDuration = particles.GetComponent<ParticleSystem>().main.duration;
+
+            Destroy(particles, particleDuration);
         }
     }
     
