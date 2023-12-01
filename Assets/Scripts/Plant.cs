@@ -12,6 +12,7 @@ public class Plant : MonoBehaviour
     
     public GrowthStage currentStage;
     [SerializeField] private MeshRenderer _meshRenderer;
+    [SerializeField] public GameObject _growthParticlesPrefab; 
 
     private float _growthProgress;
     private float _currentHealth;
@@ -112,6 +113,7 @@ public class Plant : MonoBehaviour
             _currentHealth = plantSpec.maxHealth;
             _growthProgress = 0;
             SetRandomGrowthTime(_tileAssigned.landType);
+            SpawnGrowthParticles();
             
             UpdatePlantAppearance();
         }
@@ -170,6 +172,22 @@ public class Plant : MonoBehaviour
     private void UpdatePlantAppearance()
     {
         _visual.SetInt("_AtlasTile", (int)currentStage);
+    }
+    
+    void SpawnGrowthParticles()
+    {
+        if (_growthParticlesPrefab != null)
+        {
+            GameObject particles = Instantiate(_growthParticlesPrefab, transform.position, Quaternion.identity);
+            
+            particles.transform.parent = transform;
+            
+            particles.GetComponent<ParticleSystem>().Play();
+            
+            var particleDuration = particles.GetComponent<ParticleSystem>().main.duration;
+
+            Destroy(particles, particleDuration);
+        }
     }
 
     private void HandlePlantDeath()

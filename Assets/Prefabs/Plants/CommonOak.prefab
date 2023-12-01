@@ -162,8 +162,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plantSpec: {fileID: 11400000, guid: b54373e4dfc236a4ca0efa4bce1ce4e2, type: 2}
-  _currentStage: 0
+  currentStage: 0
   _meshRenderer: {fileID: 5425427503043212978}
+  _growthParticlesPrefab: {fileID: 7268048629017619047, guid: f3a8fb2fe13207042bb84c7c1adf8440, type: 3}
 --- !u!65 &2420956174748513843
 BoxCollider:
   m_ObjectHideFlags: 0
