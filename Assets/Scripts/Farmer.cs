@@ -29,6 +29,7 @@ public class Farmer : MonoBehaviour
     private bool _waterDialogShown;
     private LandType _currentLandType = LandType.Desert;
     private DialogManager _dialogManager;
+    private RockSpawner _rockSpawner;
     
     public float minX = -5f;
     public float maxX = 5f;
@@ -40,6 +41,7 @@ public class Farmer : MonoBehaviour
     {
         inventory = GetComponent<Inventory>();
         _dialogManager = FindObjectOfType<DialogManager>();
+        _rockSpawner = FindObjectOfType<RockSpawner>();
         UpdateSelectedItem();
     }
 
@@ -404,6 +406,7 @@ public class Farmer : MonoBehaviour
         {
             Destroy(closestPebble.gameObject);
             inventory.AddPebble();
+            _rockSpawner.currentRocks--;
         }
     }
     
